@@ -9,6 +9,8 @@ import { PageHero } from '../components/layout/PageHero';
 import { galleryItems, type GalleryItem } from '../data/gallery';
 import classes from './Gallery.module.css';
 
+// TODO: Once real photos are available, update GalleryItem (in data/gallery.ts) to include an `image` field
+// and replace the gradient background here with an <img> tag (or Mantine <Image>).
 function GalleryCard({ item }: { item: GalleryItem }) {
   return (
     <Box className={classes.card}>

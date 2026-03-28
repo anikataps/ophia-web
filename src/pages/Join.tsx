@@ -166,6 +166,8 @@ export function Join() {
                   Stay connected with current members and prospective rushees. Get real-time updates on
                   info sessions, rush events, and chapter announcements.
                 </Text>
+                {/* TODO: Replace this button with an actual Slack invite link.
+                     Generate a permanent invite URL from your Slack workspace settings and add it as an href. */}
                 <Button variant="outline" color="navy" w="fit-content" rightSection={<IconArrowRight size={14} />}>
                   Join Slack
                 </Button>
@@ -221,6 +223,7 @@ export function Join() {
               ))}
             </Table.Tbody>
           </Table>
+          {/* TODO: Confirm the correct Instagram handle — Footer uses @gt_ophia but this says @opa.nu. Reconcile. */}
           <Text ta="center" size="sm" c="dimmed" mt="xl">
             Dates subject to change. Follow <strong>@opa.nu</strong> on Instagram or join our Slack for the latest.
           </Text>

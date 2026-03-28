@@ -5,6 +5,9 @@ export interface RecruitmentDate {
   status: 'upcoming' | 'tba' | 'past';
 }
 
+// TODO: Update these dates each semester before recruitment begins.
+// Also update statuses ('upcoming' / 'tba' / 'past') as events occur.
+// The Instagram handle referenced in Join.tsx (@opa.nu) should match whatever is listed here — confirm the correct handle.
 export const recruitmentDates: RecruitmentDate[] = [
   { date: 'September 8, 2026',           event: 'Fall Info Session #1',   location: 'Student Union, Rm 204',       status: 'upcoming' },
   { date: 'September 15, 2026',          event: 'Fall Info Session #2',   location: 'Library Commons, 3rd Floor',  status: 'upcoming' },

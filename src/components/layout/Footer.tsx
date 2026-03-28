@@ -87,6 +87,7 @@ export function Footer() {
         <Group justify="space-between" wrap="wrap" gap="sm">
           <Text size="xs" c="dimmed">© 2026 Omega Phi Alpha – Nu Chapter. All rights reserved.</Text>
           <Group gap="md">
+            {/* TODO: Create /privacy and /terms routes (or link to national OPA policy pages) */}
             <Anchor href="#" className={classes.bottomLink} size="xs">Privacy</Anchor>
             <Anchor href="#" className={classes.bottomLink} size="xs">Terms</Anchor>
             <Anchor component={Link} to="/contact" className={classes.bottomLink} size="xs">Accessibility</Anchor>

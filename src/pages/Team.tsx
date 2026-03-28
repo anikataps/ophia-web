@@ -57,6 +57,8 @@ export function Team() {
 
           <Paper className={classes.spotlightCard} radius="lg" shadow="md" style={{ overflow: 'hidden' }}>
             <Group align="stretch" wrap="nowrap" gap={0} className={classes.spotlightInner}>
+              {/* TODO: Replace the placeholder icon with a real headshot of the spotlight member.
+                   Add the image to /public/images/ and render it with object-fit: cover to fill this panel. */}
               <Box className={classes.spotlightImage}>
                 <Text style={{ fontSize: '5rem', color: 'rgba(201,168,76,0.25)' }}>✦</Text>
               </Box>

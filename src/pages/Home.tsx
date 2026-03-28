@@ -114,6 +114,8 @@ export function Home() {
                 Become a Member
               </Button>
             </Stack>
+            {/* TODO: Replace this placeholder with a real chapter photo (group shot, service event, etc.)
+                 Add the image to /public/images/ and render it with an <img> or Mantine <Image> component. */}
             <Paper className={classes.aboutPlaceholder} radius="lg" p="xl">
               <Stack align="center" justify="center" h="100%" gap="sm">
                 <Text style={{ fontSize: '4rem', opacity: 0.3 }}>✦</Text>
@@ -150,6 +152,8 @@ export function Home() {
             <Divider color="rgba(201,168,76,0.4)" maw={80} />
             <Text c="dimmed" ta="center">Together, we are more than a chapter — we are a movement.</Text>
           </Stack>
+          {/* TODO: Verify these numbers are still accurate — confirm Nu Chapter's current member count
+               and service hours from chapter records or the national organization's latest report. */}
           <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }} spacing="lg">
             <StatCard target={50000} suffix=""  label="Service Hours Logged Nationally Per Year" />
             <StatCard target={30}   suffix="+" label="Active Chapters Nationwide" />
@@ -167,7 +171,8 @@ export function Home() {
               <Title order={3} style={{ color: '#1a2744', marginBottom: '0.25rem', fontFamily: 'Playfair Display, serif' }}>
                 Ready to make a difference?
               </Title>
-              <Text style={{ color: 'rgba(26,39,68,0.75)' }}>
+              {/* TODO: Update this text to reflect whether applications are actually open or closed. */}
+            <Text style={{ color: 'rgba(26,39,68,0.75)' }}>
                 Applications for our next recruitment cycle are now open.
               </Text>
             </Box>

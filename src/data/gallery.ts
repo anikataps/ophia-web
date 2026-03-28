@@ -5,6 +5,10 @@ export interface GalleryItem {
   gradient: string;
 }
 
+// TODO: Replace all gradient placeholders with real photos once images are available.
+// Add an `image` field (e.g. image: '/gallery/food-bank.jpg') to the GalleryItem interface
+// and update GalleryCard in Gallery.tsx to render <img> instead of the gradient background.
+// Consider hosting images in /public/gallery/ or an external CDN (e.g. Cloudinary, Imgur).
 export const galleryItems: GalleryItem[] = [
   { id: 'g1', caption: 'Food Bank Volunteer Day', category: 'service', gradient: 'linear-gradient(135deg, #1a3a2a 0%, #2d6a47 50%, #4a9968 100%)' },
   { id: 'g2', caption: 'Campus Clean-Up Initiative', category: 'service', gradient: 'linear-gradient(160deg, #1a2744 0%, #243460 40%, #3a5a9b 100%)' },

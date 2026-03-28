@@ -19,6 +19,9 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // TODO: Connect this form to a real email backend before launch.
+  // Options: EmailJS (free, no server needed), Formspree, or a serverless function (Netlify/Vercel/CF Workers)
+  // that calls SendGrid or Resend. Remove the fake setTimeout below once integrated.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !subject || !message) return;
@@ -132,11 +135,13 @@ export function Contact() {
 
               {[
                 {
+                  // TODO: Confirm real contact email — Footer uses nu.president@omegaphialpha.org but this says nucorvid@opa.org. Reconcile.
                   icon: <IconMail size={20} />,
                   label: 'Email',
                   content: <Anchor href="mailto:nucorvid@opa.org" className={classes.infoLink}>nucorvid@opa.org</Anchor>,
                 },
                 {
+                  // TODO: Confirm correct Instagram handle (@opa.nu vs @gt_ophia) and add the real profile URL.
                   icon: <IconBrandInstagram size={20} />,
                   label: 'Instagram',
                   content: <Anchor href="#" className={classes.infoLink}>@opa.nu</Anchor>,

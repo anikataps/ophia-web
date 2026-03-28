@@ -14,10 +14,12 @@ export interface SpotlightMember {
   bio: string;
 }
 
+// TODO: Replace all placeholder names and bios below with real exec board members for the current semester.
+// Each member needs: full name, a personalized bio (not just the role description), and correct initials.
 export const execBoard: ExecMember[] = [
   {
     id: 'president',
-    name: 'Name Placeholder',
+    name: 'Name Placeholder', // TODO: Replace with real name
     position: 'President',
     bio: 'Leads the chapter with vision and purpose, overseeing all operations and serving as the primary liaison to our national organization and campus administration.',
     initial: 'P',
@@ -73,9 +75,11 @@ export const execBoard: ExecMember[] = [
   },
 ];
 
+// TODO: Update this spotlight entry every month with the featured member's real info.
+// Coordinate with the Historian to get the member's preferred quote and bio blurb.
 export const spotlight: SpotlightMember = {
-  name: 'Member Name',
-  role: 'Active Member · Junior, Environmental Studies',
+  name: 'Member Name', // TODO: Replace with featured member's real name
+  role: 'Active Member · Junior, Environmental Studies', // TODO: Update year/major
   quote:
     '"Joining Nu Chapter was the best decision I made in college. The friendships I\'ve formed and the communities we\'ve served have shaped who I am — and who I want to become."',
   bio: 'This member joined Nu Chapter during their sophomore year and has since logged over 200 individual service hours across a wide range of initiatives — from local food bank drives to campus clean-up events. They recently led a team of volunteers in a week-long literacy tutoring program that reached over 40 elementary school students. Outside of chapter activities, they are passionate about environmental advocacy and serve on the campus sustainability committee.',

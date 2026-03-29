@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Box, Container, Group, Text, Stack, SimpleGrid, Anchor, Divider, Tooltip } from '@mantine/core';
+import { Box, Container, Group, Text, Stack, SimpleGrid, Anchor, Divider, Tooltip, ActionIcon } from '@mantine/core';
 import { useClipboard } from '@mantine/hooks';
 import { IconBrandInstagram, IconMail, IconMapPin, IconClock, IconBrandFacebook, IconCheck } from '@tabler/icons-react';
 import classes from './Footer.module.css';
@@ -30,15 +30,15 @@ export function Footer() {
             <Group gap="xs" mt="xs">
               <Anchor href="https://www.instagram.com/gt_ophia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className={classes.socialLink} aria-label="Instagram"><IconBrandInstagram size={18} /></Anchor>
               <Tooltip label={clipboard.copied ? 'Copied!' : 'Copy email'} withArrow>
-                <Box
-                  component="button"
+                <ActionIcon
                   onClick={() => clipboard.copy(EMAIL)}
                   className={classes.socialLink}
                   aria-label="Copy email address"
-                  style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                  variant="transparent"
+                  size="sm"
                 >
                   {clipboard.copied ? <IconCheck size={18} /> : <IconMail size={18} />}
-                </Box>
+                </ActionIcon>
               </Tooltip>
               <Anchor href="https://www.facebook.com/omegaphialphagt" target="_blank" rel="noopener noreferrer" className={classes.socialLink} aria-label="Facebook"><IconBrandFacebook size={18} /></Anchor>
             </Group>

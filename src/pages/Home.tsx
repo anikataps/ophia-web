@@ -6,7 +6,6 @@ import {
 } from '@mantine/core';
 import { useIntersection } from '@mantine/hooks';
 import { IconArrowRight, IconHeart, IconUsers, IconStar, IconQuote } from '@tabler/icons-react';
-import { galleryItems } from '../data/gallery';
 import classes from './Home.module.css';
 
 function StatCard({ target, suffix, label }: { target: number; suffix: string; label: string }) {
@@ -179,7 +178,7 @@ export function Home() {
       </Box>
 
       {/* ── THREE PILLARS ── */}
-      <Box className={classes.section} style={{ background: '#fff' }}>
+      <Box style={{ background: '#fff', padding: '2.5rem 0 5rem' }}>
         <Container size="xl">
           <Stack align="center" mb="3rem" gap="sm">
             <Title order={2} className={classes.sectionTitle}>What We Stand For</Title>
@@ -247,50 +246,6 @@ export function Home() {
             <StatCard target={25}   suffix="+" label="Nu Chapter Active Members" />
             <StatCard target={60}   suffix="+" label="Years of Service (Founded 1967)" />
           </SimpleGrid>
-        </Container>
-      </Box>
-
-      {/* ── GALLERY PREVIEW ── */}
-      <Box className={classes.section} style={{ background: '#fff' }}>
-        <Container size="xl">
-          <Stack align="center" mb="3rem" gap="sm">
-            <Title order={2} className={classes.sectionTitle}>Moments That Matter</Title>
-            <Divider color="#c9a84c" maw={80} />
-            <Text c="dimmed" ta="center">
-              A glimpse into our service events and sisterhood traditions.
-            </Text>
-          </Stack>
-          <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }} spacing="md" mb="2.5rem">
-            {galleryItems.slice(0, 4).map(item => (
-              <Box key={item.id} className={classes.previewCard}>
-                <Box className={classes.previewImage} style={{ background: item.gradient }} />
-                <Box className={classes.previewOverlay}>
-                  <Text size="sm" fw={600} c="white" lh={1.3}>{item.caption}</Text>
-                </Box>
-                <Badge
-                  className={classes.previewBadge}
-                  color={item.category === 'service' ? 'navy' : 'gold'}
-                  variant="filled"
-                  size="xs"
-                  radius="sm"
-                >
-                  {item.category === 'service' ? 'Service' : 'Sisterhood'}
-                </Badge>
-              </Box>
-            ))}
-          </SimpleGrid>
-          <Group justify="center">
-            <Button
-              component={Link}
-              to="/gallery"
-              variant="outline"
-              color="navy"
-              size="md"
-              rightSection={<IconArrowRight size={16} />}
-            >
-              View All Photos
-            </Button>
-          </Group>
         </Container>
       </Box>
 

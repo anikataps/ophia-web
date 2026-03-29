@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
-import { Box, Container, Group, Text, Stack, SimpleGrid, Anchor, Divider } from '@mantine/core';
-import { IconBrandInstagram, IconMail, IconMapPin, IconClock, IconBrandFacebook } from '@tabler/icons-react';
+import { Box, Container, Group, Text, Stack, SimpleGrid, Anchor, Divider, Tooltip } from '@mantine/core';
+import { useClipboard } from '@mantine/hooks';
+import { IconBrandInstagram, IconMail, IconMapPin, IconClock, IconBrandFacebook, IconCheck } from '@tabler/icons-react';
 import classes from './Footer.module.css';
 
+const EMAIL = 'nu.president@omegaphialpha.org';
+
 export function Footer() {
+  const clipboard = useClipboard({ timeout: 2000 });
+
   return (
     <Box component="footer" className={classes.footer}>
       <Container size="xl" py="xl">
@@ -24,7 +29,17 @@ export function Footer() {
             </Text>
             <Group gap="xs" mt="xs">
               <Anchor href="https://www.instagram.com/gt_ophia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className={classes.socialLink} aria-label="Instagram"><IconBrandInstagram size={18} /></Anchor>
-              <Anchor href="mailto:nu.president@omegaphialpha.org" className={classes.socialLink} aria-label="Email"><IconMail size={18} /></Anchor>
+              <Tooltip label={clipboard.copied ? 'Copied!' : 'Copy email'} withArrow>
+                <Box
+                  component="button"
+                  onClick={() => clipboard.copy(EMAIL)}
+                  className={classes.socialLink}
+                  aria-label="Copy email address"
+                  style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                >
+                  {clipboard.copied ? <IconCheck size={18} /> : <IconMail size={18} />}
+                </Box>
+              </Tooltip>
               <Anchor href="https://www.facebook.com/omegaphialphagt" target="_blank" rel="noopener noreferrer" className={classes.socialLink} aria-label="Facebook"><IconBrandFacebook size={18} /></Anchor>
             </Group>
           </Stack>

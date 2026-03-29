@@ -5,7 +5,8 @@ import {
   Stack, Paper, Divider, Badge,
 } from '@mantine/core';
 import { useIntersection } from '@mantine/hooks';
-import { IconArrowRight } from '@tabler/icons-react';
+import { IconArrowRight, IconHeart, IconUsers, IconStar, IconQuote } from '@tabler/icons-react';
+import { galleryItems } from '../data/gallery';
 import classes from './Home.module.css';
 
 function StatCard({ target, suffix, label }: { target: number; suffix: string; label: string }) {
@@ -36,10 +37,60 @@ function StatCard({ target, suffix, label }: { target: number; suffix: string; l
   );
 }
 
+const pillars = [
+  {
+    icon: <IconHeart size={28} />,
+    title: 'Service',
+    description:
+      'We believe in the power of community action. Our members log hundreds of volunteer hours each semester — from food banks and literacy programs to environmental clean-ups and youth mentorship.',
+    link: '/gallery',
+    linkLabel: 'See Our Work',
+  },
+  {
+    icon: <IconUsers size={28} />,
+    title: 'Sisterhood',
+    description:
+      'More than a sorority — a family. From bid day to graduation, Nu Chapter is a community that lifts you up, challenges you to grow, and celebrates every milestone alongside you.',
+    link: '/join',
+    linkLabel: 'Become a Sister',
+  },
+  {
+    icon: <IconStar size={28} />,
+    title: 'Leadership',
+    description:
+      'We develop the leaders of tomorrow. Whether chairing a service project, running for exec board, or representing Nu Chapter at national conferences, every member has a stage.',
+    link: '/team',
+    linkLabel: 'Meet Our Leaders',
+  },
+];
+
+// TODO: Replace placeholder names, roles, and quotes with real member testimonials
+const testimonials = [
+  {
+    quote:
+      '"Joining Nu Chapter was the best decision I made in college. The friendships, the service work, the growth — I came in looking for community and found a second family."',
+    name: 'Member Name',
+    role: 'Active Member · Junior',
+  },
+  {
+    quote:
+      '"Nu Chapter pushed me to step outside my comfort zone. I went from being shy to leading a 40-person volunteer project — and I loved every second of it."',
+    name: 'Member Name',
+    role: 'Active Member · Senior',
+  },
+  {
+    quote:
+      '"The leadership experience alone was worth it. Running for exec board developed skills I use every day in my internship and classes. OPA prepared me for the real world."',
+    name: 'Member Name',
+    role: 'VP of Service · Sophomore',
+  },
+];
+
 export function Home() {
   return (
     <Box>
-      {/* HERO */}
+
+      {/* ── HERO ── */}
       <Box className={classes.hero}>
         <Container size="lg" className={classes.heroContent}>
           <Badge variant="outline" color="gold" size="lg" radius="xl" mb="lg" className={classes.eyebrow}>
@@ -84,7 +135,7 @@ export function Home() {
         </Box>
       </Box>
 
-      {/* ABOUT */}
+      {/* ── ABOUT ── */}
       <Box id="about" className={classes.section} style={{ background: '#f8f9fc' }}>
         <Container size="xl">
           <SimpleGrid cols={{ base: 1, md: 2 }} spacing="4rem" style={{ alignItems: 'center' }}>
@@ -127,7 +178,43 @@ export function Home() {
         </Container>
       </Box>
 
-      {/* MISSION */}
+      {/* ── THREE PILLARS ── */}
+      <Box className={classes.section} style={{ background: '#fff' }}>
+        <Container size="xl">
+          <Stack align="center" mb="3rem" gap="sm">
+            <Title order={2} className={classes.sectionTitle}>What We Stand For</Title>
+            <Divider color="#c9a84c" maw={80} />
+            <Text c="dimmed" ta="center" maw={540}>
+              Everything we do is rooted in three core values that have defined Omega Phi Alpha since 1967.
+            </Text>
+          </Stack>
+          <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
+            {pillars.map(p => (
+              <Paper key={p.title} className={classes.pillarCard} p="xl" radius="lg" shadow="xs">
+                <Stack gap="md">
+                  <Box className={classes.pillarIcon}>{p.icon}</Box>
+                  <Title order={3} className={classes.pillarTitle}>{p.title}</Title>
+                  <Text c="dimmed" lh={1.7} size="sm" style={{ flex: 1 }}>{p.description}</Text>
+                  <Button
+                    component={Link}
+                    to={p.link}
+                    variant="subtle"
+                    size="sm"
+                    w="fit-content"
+                    rightSection={<IconArrowRight size={13} />}
+                    px={0}
+                    style={{ color: '#a8872e' }}
+                  >
+                    {p.linkLabel}
+                  </Button>
+                </Stack>
+              </Paper>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* ── MISSION ── */}
       <Box className={classes.mission}>
         <Container size="md">
           <Box className={classes.missionCard}>
@@ -142,7 +229,7 @@ export function Home() {
         </Container>
       </Box>
 
-      {/* STATS */}
+      {/* ── STATS ── */}
       <Box className={classes.section} style={{ background: '#1a2744' }}>
         <Container size="xl">
           <Stack align="center" mb="3rem" gap="sm">
@@ -163,7 +250,78 @@ export function Home() {
         </Container>
       </Box>
 
-      {/* CTA STRIP */}
+      {/* ── GALLERY PREVIEW ── */}
+      <Box className={classes.section} style={{ background: '#fff' }}>
+        <Container size="xl">
+          <Stack align="center" mb="3rem" gap="sm">
+            <Title order={2} className={classes.sectionTitle}>Moments That Matter</Title>
+            <Divider color="#c9a84c" maw={80} />
+            <Text c="dimmed" ta="center">
+              A glimpse into our service events and sisterhood traditions.
+            </Text>
+          </Stack>
+          <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }} spacing="md" mb="2.5rem">
+            {galleryItems.slice(0, 4).map(item => (
+              <Box key={item.id} className={classes.previewCard}>
+                <Box className={classes.previewImage} style={{ background: item.gradient }} />
+                <Box className={classes.previewOverlay}>
+                  <Text size="sm" fw={600} c="white" lh={1.3}>{item.caption}</Text>
+                </Box>
+                <Badge
+                  className={classes.previewBadge}
+                  color={item.category === 'service' ? 'navy' : 'gold'}
+                  variant="filled"
+                  size="xs"
+                  radius="sm"
+                >
+                  {item.category === 'service' ? 'Service' : 'Sisterhood'}
+                </Badge>
+              </Box>
+            ))}
+          </SimpleGrid>
+          <Group justify="center">
+            <Button
+              component={Link}
+              to="/gallery"
+              variant="outline"
+              color="navy"
+              size="md"
+              rightSection={<IconArrowRight size={16} />}
+            >
+              View All Photos
+            </Button>
+          </Group>
+        </Container>
+      </Box>
+
+      {/* ── TESTIMONIALS ── */}
+      <Box className={classes.section} style={{ background: '#f8f9fc' }}>
+        <Container size="xl">
+          <Stack align="center" mb="3rem" gap="sm">
+            <Title order={2} className={classes.sectionTitle}>Heard From Our Sisters</Title>
+            <Divider color="#c9a84c" maw={80} />
+            <Text c="dimmed" ta="center">
+              Real stories from the women who make Nu Chapter what it is.
+            </Text>
+          </Stack>
+          <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
+            {testimonials.map((t, i) => (
+              <Paper key={i} className={classes.testimonialCard} p="xl" radius="lg" shadow="xs">
+                <Stack gap="md" h="100%">
+                  <IconQuote size={28} style={{ color: '#c9a84c', opacity: 0.7, flexShrink: 0 }} />
+                  <Text className={classes.testimonialQuote} style={{ flex: 1 }}>{t.quote}</Text>
+                  <Box>
+                    <Text className={classes.testimonialName}>{t.name}</Text>
+                    <Text size="xs" style={{ color: '#a8872e' }}>{t.role}</Text>
+                  </Box>
+                </Stack>
+              </Paper>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* ── CTA STRIP ── */}
       <Box style={{ background: 'linear-gradient(90deg, #a8872e, #c9a84c, #a8872e)', padding: '2.5rem 0' }}>
         <Container size="xl">
           <Group justify="space-between" wrap="wrap" gap="xl">
@@ -172,7 +330,7 @@ export function Home() {
                 Ready to make a difference?
               </Title>
               {/* TODO: Update this text to reflect whether applications are actually open or closed. */}
-            <Text style={{ color: 'rgba(26,39,68,0.75)' }}>
+              <Text style={{ color: 'rgba(26,39,68,0.75)' }}>
                 Applications for our next recruitment cycle are now open.
               </Text>
             </Box>
@@ -187,6 +345,7 @@ export function Home() {
           </Group>
         </Container>
       </Box>
+
     </Box>
   );
 }

@@ -151,3 +151,101 @@
   line-height: 1.5;
   display: block;
 }
+
+/* ── THREE PILLARS ── */
+.pillarCard {
+  border-top: 3px solid #c9a84c;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(26, 39, 68, 0.13) !important;
+}
+
+.pillarIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.16), rgba(201, 168, 76, 0.06));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9a84c;
+  flex-shrink: 0;
+}
+
+.pillarTitle {
+  font-family: 'Playfair Display', serif !important;
+  color: #1a2744 !important;
+  font-size: 1.35rem !important;
+}
+
+/* ── GALLERY PREVIEW ── */
+.previewCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.previewCard:hover .previewOverlay {
+  opacity: 1;
+}
+
+.previewCard:hover .previewImage {
+  transform: scale(1.05);
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s ease;
+}
+
+.previewOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 27, 51, 0.88) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.previewBadge {
+  position: absolute !important;
+  top: 0.65rem;
+  left: 0.65rem;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonialCard {
+  border-left: 3px solid #c9a84c;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26, 39, 68, 0.1) !important;
+}
+
+.testimonialQuote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: #2a3a5a;
+}
+
+.testimonialName {
+  font-weight: 700;
+  color: #1a2744;
+  font-size: 0.88rem;
+}

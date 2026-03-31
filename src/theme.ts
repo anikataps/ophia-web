@@ -36,4 +36,11 @@ export const theme = createTheme({
     fontWeight: '700',
   },
   defaultRadius: 'md',
+  components: {
+    Container: {
+      defaultProps: {
+        px: { base: '1.25rem', xs: '2rem', md: '3rem' },
+      },
+    },
+  },
 });

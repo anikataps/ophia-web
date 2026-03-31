@@ -253,7 +253,7 @@ export function Home() {
       <Box className={classes.section} style={{ background: '#f8f9fc' }}>
         <Container size="xl">
           <Stack align="center" mb="3rem" gap="sm">
-            <Title order={2} className={classes.sectionTitle}>Heard From Our Sisters</Title>
+            <Title order={2} className={classes.sectionTitle}>Hear From Our Sisters</Title>
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center">
               Real stories from the women who make Nu Chapter what it is.

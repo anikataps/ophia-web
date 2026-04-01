@@ -75,3 +75,43 @@
   color: #1a2744 !important;
   font-size: 1rem !important;
 }
+
+/* ── SERVICE GALLERY ── */
+.photoCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: default;
+}
+
+.photoCard:hover .photoOverlay {
+  opacity: 1;
+}
+
+.photoCard:hover .photoImage {
+  transform: scale(1.05);
+}
+
+.photoImage {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s ease;
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 27, 51, 0.88) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.photoBadge {
+  position: absolute !important;
+  top: 0.65rem;
+  left: 0.65rem;
+}

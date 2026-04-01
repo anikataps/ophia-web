@@ -33,13 +33,26 @@ const otherWays = [
   },
 ];
 
+// TODO: Replace gradient placeholders with real service photos.
+// Add an `image` field to each entry and render <img> instead of the gradient background.
+const servicePhotos = [
+  { id: 'sp1', caption: 'Campus Resource Fair',              domain: 'University Community',   badgeColor: 'navy',   gradient: 'linear-gradient(135deg, #1a2744 0%, #3a5a9b 100%)'             },
+  { id: 'sp2', caption: 'Mental Health Awareness Tabling',   domain: 'University Community',   badgeColor: 'navy',   gradient: 'linear-gradient(160deg, #243460 0%, #4a6fa5 100%)'             },
+  { id: 'sp3', caption: 'Food Bank Volunteer Day',           domain: 'Community at Large',     badgeColor: 'teal',   gradient: 'linear-gradient(135deg, #1a3a2a 0%, #2d6a47 50%, #4a9968 100%)' },
+  { id: 'sp4', caption: 'Neighborhood Clean-Up Drive',       domain: 'Community at Large',     badgeColor: 'teal',   gradient: 'linear-gradient(160deg, #1a3a1a 0%, #2a5c2a 40%, #4a8c4a 100%)' },
+  { id: 'sp5', caption: 'Chapter Wellness Workshop',         domain: 'Members of the Sorority', badgeColor: 'gold',  gradient: 'linear-gradient(135deg, #3a2a0a 0%, #8b6914 50%, #c9a84c 100%)' },
+  { id: 'sp6', caption: 'Sister Support Circle',             domain: 'Members of the Sorority', badgeColor: 'gold',  gradient: 'linear-gradient(160deg, #2a1a0a 0%, #6b4a14 50%, #a8872e 100%)' },
+  { id: 'sp7', caption: 'Global Fundraiser Event',           domain: 'Nations of the World',   badgeColor: 'violet', gradient: 'linear-gradient(135deg, #2a1a3a 0%, #5a2d7a 50%, #8b4fb5 100%)' },
+  { id: 'sp8', caption: 'International Awareness Campaign',  domain: 'Nations of the World',   badgeColor: 'violet', gradient: 'linear-gradient(160deg, #1a1a3a 0%, #3a2a6b 50%, #6a4db5 100%)' },
+];
+
 export function Service() {
   return (
     <Box>
       <PageHero
         eyebrow="Making a Difference"
         title="Service"
-        subtitle="Service is not just what we do — it's who we are. We were founded in 1988, and giving back has been at the heart of everything Nu Chapter stands for ever since."
+        subtitle="Service is not just what we do. It's who we are. We were founded in 1988, and giving back has been at the heart of everything Nu Chapter stands for ever since."
       />
 
       {/* ── SERVICE MISSION ── */}
@@ -78,10 +91,10 @@ export function Service() {
             </Stack>
             <SimpleGrid cols={2} spacing="md">
               {[
-                { value: '500+', label: 'Service hours per semester'  },
-                { value: '10+',  label: 'Partner organizations'       },
-                { value: '20',   label: 'Min. hours per member'       },
-                { value: '4',    label: 'Areas of service impact'     },
+                { value: '500+', label: 'Service hours per semester'        },
+                { value: '25+',  label: 'Partner organizations'             },
+                { value: '20',   label: 'Min. hours per member'             },
+                { value: '35+',  label: 'Members contributing to service'   },
               ].map(s => (
                 <Paper key={s.label} className={classes.miniStat} p="lg" radius="lg" shadow="xs">
                   <Text className={classes.miniStatValue}>{s.value}</Text>
@@ -252,6 +265,38 @@ export function Service() {
                   <Text size="sm" c="dimmed" lh={1.6}>{item.desc}</Text>
                 </Stack>
               </Paper>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* ── SERVICE GALLERY ── */}
+      <Box py="5rem" style={{ background: '#f8f9fc' }}>
+        <Container size="xl">
+          <Stack align="center" mb="3rem" gap="sm">
+            <Title order={2} className={classes.sectionTitle}>Service in Action</Title>
+            <Divider color="#c9a84c" maw={80} />
+            <Text c="dimmed" ta="center" maw={540}>
+              A look at the work our members do across all four areas of service.
+            </Text>
+          </Stack>
+          <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }} spacing="md">
+            {servicePhotos.map(photo => (
+              <Box key={photo.id} className={classes.photoCard}>
+                <Box className={classes.photoImage} style={{ background: photo.gradient }} />
+                <Box className={classes.photoOverlay}>
+                  <Text size="sm" fw={600} c="white" lh={1.3}>{photo.caption}</Text>
+                </Box>
+                <Badge
+                  className={classes.photoBadge}
+                  color={photo.badgeColor}
+                  variant="filled"
+                  size="xs"
+                  radius="sm"
+                >
+                  {photo.domain}
+                </Badge>
+              </Box>
             ))}
           </SimpleGrid>
         </Container>

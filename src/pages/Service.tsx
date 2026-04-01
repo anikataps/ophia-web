@@ -216,7 +216,7 @@ export function Service() {
       <Box py="3rem" style={{ background: '#fff' }}>
         <Container size="xl">
           <Stack align="center" mb="3rem" gap="sm">
-            <Badge variant="filled" color="gold" size="sm" radius="xl">Permanent Service Project</Badge>
+            <Badge variant="filled" color="gold" size="sm" radius="xl" mb="sm">Permanent Service Project</Badge>
             <Title order={2} className={classes.sectionTitle} ta="center">Mental Health</Title>
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center" maw={600} lh={1.7}>
@@ -285,7 +285,7 @@ export function Service() {
       <Box py="3rem" style={{ background: '#f8f9fc' }}>
         <Container size="xl">
           <Stack align="center" mb="3rem" gap="sm">
-            <Badge variant="filled" color="navy" size="sm" radius="xl">President's Project</Badge>
+            <Badge variant="filled" color="navy" size="sm" radius="xl" mb="sm">President's Project</Badge>
             <Title order={2} className={classes.sectionTitle} ta="center">Strengthening Families</Title>
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center" maw={600} lh={1.7}>

@@ -38,7 +38,7 @@ export function Contact() {
       <PageHero
         eyebrow="We'd love to hear from you"
         title="Contact Us"
-        subtitle="Whether you have a question about membership, a partnership idea, or just want to say hello — our inbox is open."
+        subtitle="Whether you have a question about membership, a partnership idea, or just want to say hello, our inbox is open."
       />
 
       <Box py="5rem">

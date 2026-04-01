@@ -14,7 +14,7 @@ const otherWays = [
   {
     icon: <IconSchool size={22} />,
     title: 'University Community',
-    desc: 'Serving the students, faculty, and staff around us — through campus initiatives, resource drives, awareness events, and programs that strengthen life on campus.',
+    desc: 'Serving the students, faculty, and staff around us through campus initiatives, resource drives, awareness events, and programs that strengthen life on campus.',
   },
   {
     icon: <IconUsers size={22} />,
@@ -54,13 +54,13 @@ export function Service() {
               <Divider color="#c9a84c" maw={60} />
               <Text c="dimmed" lh={1.8}>
                 Every semester, Nu Chapter members collectively log hundreds of volunteer hours across
-                a wide range of causes — from supporting mental health awareness to strengthening
+                a wide range of causes, from supporting mental health awareness to strengthening
                 families in our local community. We believe that meaningful change starts with showing up.
               </Text>
               <Text c="dimmed" lh={1.8}>
                 Our service reaches four areas: the <strong>university community</strong>, the{' '}
                 <strong>community at large</strong>, the <strong>members of the sorority</strong>, and
-                the <strong>nations of the world</strong> — ensuring our impact is felt close to home
+                the <strong>nations of the world</strong>, ensuring our impact is felt close to home
                 and far beyond it.
               </Text>
               <Button
@@ -102,7 +102,7 @@ export function Service() {
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center" maw={600} lh={1.7}>
               Designated at the national level of Omega Phi Alpha, Mental Health is our chapter's
-              permanent, ongoing service focus — a cause we return to every semester, every year.
+              permanent, ongoing service focus, one we return to every semester, every year.
             </Text>
           </Stack>
 
@@ -127,7 +127,7 @@ export function Service() {
                     and connect our community to resources.
                   </Text>
                   <Text c="dimmed" lh={1.8}>
-                    Our commitment to mental health is ongoing — not a one-time event. We partner
+                    Our commitment to mental health is ongoing, not a one-time event. We partner
                     with campus counseling centers, local nonprofits, and national awareness campaigns
                     to make a sustained difference.
                   </Text>
@@ -194,7 +194,7 @@ export function Service() {
                     Families are the foundation of every thriving community. Yet many families in our
                     area face challenges ranging from food insecurity and housing instability to a lack
                     of access to educational and social resources. This project is about showing up for
-                    them — consistently and meaningfully.
+                    them, consistently and meaningfully.
                   </Text>
                   <Text c="dimmed" lh={1.8}>
                     Through partnerships with local family services organizations, shelters, and community
@@ -238,7 +238,7 @@ export function Service() {
             <Title order={2} className={classes.sectionTitle}>More Ways We Serve</Title>
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center" maw={540}>
-              Our service reaches every level — from the people right beside us to communities across the globe.
+              Our service reaches every level, from the people right beside us to communities across the globe.
             </Text>
           </Stack>
           <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }} spacing="lg">

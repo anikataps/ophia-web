@@ -41,7 +41,7 @@ const pillars = [
     icon: <IconHeart size={28} />,
     title: 'Service',
     description:
-      'We believe in the power of community action. Our members log hundreds of volunteer hours each semester — from food banks and literacy programs to environmental clean-ups and youth mentorship.',
+      'We believe in the power of community action. Our members log hundreds of volunteer hours each semester, from food banks and literacy programs to environmental clean-ups and youth mentorship.',
     link: '/service',
     linkLabel: 'See Our Work',
   },
@@ -49,7 +49,7 @@ const pillars = [
     icon: <IconUsers size={28} />,
     title: 'Sisterhood',
     description:
-      'More than a sorority — a family. From bid day to graduation, Nu Chapter is a community that lifts you up, challenges you to grow, and celebrates every milestone alongside you.',
+      'More than a sorority. A family. From bid day to graduation, Nu Chapter is a community that lifts you up, challenges you to grow, and celebrates every milestone alongside you.',
     link: '/join',
     linkLabel: 'Become a Sister',
   },
@@ -67,13 +67,13 @@ const pillars = [
 const testimonials = [
   {
     quote:
-      '"Joining Nu Chapter was the best decision I made in college. The friendships, the service work, the growth — I came in looking for community and found a second family."',
+      '"Joining Nu Chapter was the best decision I made in college. The friendships, the service work, the growth. I came in looking for community and found a second family."',
     name: 'Member Name',
     role: 'Active Member · Junior',
   },
   {
     quote:
-      '"Nu Chapter pushed me to step outside my comfort zone. I went from being shy to leading a 40-person volunteer project — and I loved every second of it."',
+      '"Nu Chapter pushed me to step outside my comfort zone. I went from being shy to leading a 40-person volunteer project, and I loved every second of it."',
     name: 'Member Name',
     role: 'Active Member · Senior',
   },
@@ -236,7 +236,7 @@ export function Home() {
               Our Impact by the Numbers
             </Title>
             <Divider color="rgba(201,168,76,0.4)" maw={80} />
-            <Text c="dimmed" ta="center">Together, we are more than a chapter — we are a movement.</Text>
+            <Text c="dimmed" ta="center">Together, we are more than a chapter. We are a movement.</Text>
           </Stack>
           {/* TODO: Verify these numbers are still accurate — confirm Nu Chapter's current member count
                and service hours from chapter records or the national organization's latest report. */}

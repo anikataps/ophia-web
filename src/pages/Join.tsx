@@ -15,7 +15,7 @@ const whyJoin = [
   {
     icon: <IconUsers size={28} />,
     title: 'Service',
-    body: 'Make a tangible difference in your community. Our members collectively log hundreds of service hours each semester across a diverse portfolio of causes — from hunger relief to environmental action.',
+    body: 'Make a tangible difference in your community. Our members collectively log hundreds of service hours each semester across a diverse portfolio of causes, from hunger relief to environmental action.',
   },
   {
     icon: <IconHeart size={28} />,
@@ -30,10 +30,10 @@ const whyJoin = [
 ];
 
 const steps = [
-  { n: 1, title: 'Attend an Info Session',     desc: 'Come learn about who we are, what we do, and why our members love being part of Nu Chapter. No commitment required — just show up with your curiosity.' },
+  { n: 1, title: 'Attend an Info Session',     desc: 'Come learn about who we are, what we do, and why our members love being part of Nu Chapter. No commitment required. Just show up with your curiosity.' },
   { n: 2, title: 'Rush Week Events',            desc: 'Participate in a week of social events, service activities, and meet-and-greets with current members. This is your opportunity to experience our chapter culture firsthand.' },
-  { n: 3, title: 'Bid Day',                     desc: 'Receive your formal invitation to join Nu Chapter. Bid Day is one of our most celebrated traditions — a joyful welcome into the sisterhood.' },
-  { n: 4, title: 'New Member Education',        desc: 'A structured yet enriching semester-long program that deepens your understanding of our history, values, and rituals — and bonds you with your pledge class.' },
+  { n: 3, title: 'Bid Day',                     desc: 'Receive your formal invitation to join Nu Chapter. Bid Day is one of our most celebrated traditions, a joyful welcome into the sisterhood.' },
+  { n: 4, title: 'New Member Education',        desc: 'A structured yet enriching semester-long program that deepens your understanding of our history, values, and rituals, and bonds you with your pledge class.' },
 ];
 
 const requirements = [
@@ -72,7 +72,7 @@ export function Join() {
             <Title order={2} className={classes.sectionTitle}>Why Join Nu Chapter?</Title>
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center" maw={560}>
-              More than a sorority — a community that challenges and champions you every step of the way.
+              More than a sorority. A community that challenges and champions you every step of the way.
             </Text>
           </Stack>
           <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
@@ -101,7 +101,7 @@ export function Join() {
               <Divider color="#c9a84c" maw={60} mb="md" />
               <Text c="dimmed" mb="2rem" lh={1.7}>
                 Our recruitment process is designed to be welcoming, transparent, and fun. We want you
-                to find the right fit — and we believe Nu Chapter might just be it.
+                to find the right fit, and we believe Nu Chapter might just be it.
               </Text>
               <Stack gap="xl">
                 {steps.map(step => (
@@ -141,7 +141,7 @@ export function Join() {
               <Paper mt="xl" p="md" radius="md" style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.2)' }}>
                 <Text size="sm" c="dimmed">
                   <strong style={{ color: '#1a2744' }}>Not sure if you qualify?</strong>{' '}
-                  Reach out to our VP of Membership — we're happy to answer any questions before Rush Week.
+                  Reach out to our VP of Membership. We're happy to answer any questions before Rush Week.
                 </Text>
               </Paper>
             </Box>
@@ -201,7 +201,7 @@ export function Join() {
           <Stack align="center" mb="3rem" gap="sm">
             <Title order={2} className={classes.sectionTitle}>Upcoming Recruitment Dates</Title>
             <Divider color="#c9a84c" maw={80} />
-            <Text c="dimmed" ta="center">Mark your calendar — spaces at rush events fill up quickly!</Text>
+            <Text c="dimmed" ta="center">Mark your calendar. Spaces at rush events fill up quickly!</Text>
           </Stack>
           <Table className={classes.table} striped highlightOnHover withTableBorder withColumnBorders>
             <Table.Thead>

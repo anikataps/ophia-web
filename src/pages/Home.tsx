@@ -80,8 +80,8 @@ const testimonials = [
   {
     quote:
       '"The leadership experience alone was worth it. Running for exec board developed skills I use every day in my internship and classes. OPA prepared me for the real world."',
-    name: 'Member Name',
-    role: 'VP of Service · Sophomore',
+    name: 'Anika Tapshalkar',
+    role: 'Outreach Chair · Freshman',
   },
 ];
 

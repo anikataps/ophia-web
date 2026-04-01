@@ -15,22 +15,22 @@ const otherWays = [
   {
     icon: <IconSchool size={22} />,
     title: 'University Community',
-    desc: 'Serving the students, faculty, and staff around us through campus initiatives, resource drives, awareness events, and programs that strengthen life on campus.',
+    desc: 'We serve the students, faculty, and staff around us through campus initiatives, resource drives, awareness events, and programs that strengthen life on campus.',
   },
   {
     icon: <IconUsers size={22} />,
     title: 'Community at Large',
-    desc: 'Reaching beyond campus to support our broader community through food banks, family services, neighborhood clean-ups, and local nonprofit partnerships.',
+    desc: 'We reach beyond campus to support our broader community through food banks, family services, neighborhood clean-ups, and local nonprofit partnerships.',
   },
   {
     icon: <IconHeart size={22} />,
     title: 'Members of the Sorority',
-    desc: 'Taking care of each other. We invest in our own members through wellness programming, mutual support, and creating a chapter culture where everyone can thrive.',
+    desc: 'We take care of each other. Our members are supported through wellness programming, mutual encouragement, and a chapter culture where everyone can thrive.',
   },
   {
     icon: <IconWorld size={22} />,
     title: 'Nations of the World',
-    desc: 'Thinking globally and acting locally. We support international causes, raise awareness of global issues, and fundraise for organizations working across borders.',
+    desc: 'We think globally and act locally. Our members support international causes, raise awareness of global issues, and fundraise for organizations working across borders.',
   },
 ];
 
@@ -337,6 +337,7 @@ export function Service() {
                       'Partner with food banks to address family-level food insecurity',
                       'Assist with family resource fairs and community events',
                       'Fundraise for local organizations focused on family stability',
+                      'Connect families with mental health and wellness resources in the community',
                     ].map(item => (
                       <List.Item key={item}>
                         <Text size="sm" lh={1.6}>{item}</Text>

@@ -79,7 +79,7 @@
 /* ── SERVICE SLIDESHOW ── */
 .slideshowWrap {
   position: relative;
-  max-width: 860px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -87,7 +87,7 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   cursor: default;
   box-shadow: 0 12px 40px rgba(26, 39, 68, 0.18);
 }

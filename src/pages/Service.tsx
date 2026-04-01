@@ -84,7 +84,7 @@ function ServiceSlideshow() {
         {/* Overlay — slides up on hover */}
         <Box className={classes.photoOverlay}>
           <Text size="sm" fw={600} c="white" lh={1.5}>
-            {photo.domain}: _______________
+            ___(Description of Service)___
           </Text>
         </Box>
 
@@ -198,7 +198,7 @@ export function Service() {
             <SimpleGrid cols={2} spacing="md">
               {[
                 { value: '500+', label: 'Service hours per semester'        },
-                { value: '25+',  label: 'Partner organizations'             },
+                { value: '45+',  label: 'Partner organizations'             },
                 { value: '20',   label: 'Min. hours per member'             },
                 { value: '35+',  label: 'Members contributing to service'   },
               ].map(s => (

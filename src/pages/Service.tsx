@@ -35,15 +35,17 @@ const otherWays = [
 
 // TODO: Replace gradient placeholders with real service photos.
 // Add an `image` field to each entry and render <img> instead of the gradient background.
+// TODO: Replace gradient placeholders with real service photos.
+// Add an `image` field to each entry and render <img> instead of the gradient background.
 const servicePhotos = [
-  { id: 'sp1', caption: 'Campus Resource Fair',              domain: 'University Community',   badgeColor: 'navy',   gradient: 'linear-gradient(135deg, #1a2744 0%, #3a5a9b 100%)'             },
-  { id: 'sp2', caption: 'Mental Health Awareness Tabling',   domain: 'University Community',   badgeColor: 'navy',   gradient: 'linear-gradient(160deg, #243460 0%, #4a6fa5 100%)'             },
-  { id: 'sp3', caption: 'Food Bank Volunteer Day',           domain: 'Community at Large',     badgeColor: 'teal',   gradient: 'linear-gradient(135deg, #1a3a2a 0%, #2d6a47 50%, #4a9968 100%)' },
-  { id: 'sp4', caption: 'Neighborhood Clean-Up Drive',       domain: 'Community at Large',     badgeColor: 'teal',   gradient: 'linear-gradient(160deg, #1a3a1a 0%, #2a5c2a 40%, #4a8c4a 100%)' },
-  { id: 'sp5', caption: 'Chapter Wellness Workshop',         domain: 'Members of the Sorority', badgeColor: 'gold',  gradient: 'linear-gradient(135deg, #3a2a0a 0%, #8b6914 50%, #c9a84c 100%)' },
-  { id: 'sp6', caption: 'Sister Support Circle',             domain: 'Members of the Sorority', badgeColor: 'gold',  gradient: 'linear-gradient(160deg, #2a1a0a 0%, #6b4a14 50%, #a8872e 100%)' },
-  { id: 'sp7', caption: 'Global Fundraiser Event',           domain: 'Nations of the World',   badgeColor: 'violet', gradient: 'linear-gradient(135deg, #2a1a3a 0%, #5a2d7a 50%, #8b4fb5 100%)' },
-  { id: 'sp8', caption: 'International Awareness Campaign',  domain: 'Nations of the World',   badgeColor: 'violet', gradient: 'linear-gradient(160deg, #1a1a3a 0%, #3a2a6b 50%, #6a4db5 100%)' },
+  { id: 'sp1', domain: 'University Community',    badgeColor: 'navy',   gradient: 'linear-gradient(135deg, #1a2744 0%, #3a5a9b 100%)'              },
+  { id: 'sp2', domain: 'University Community',    badgeColor: 'navy',   gradient: 'linear-gradient(160deg, #243460 0%, #4a6fa5 100%)'              },
+  { id: 'sp3', domain: 'Community at Large',      badgeColor: 'teal',   gradient: 'linear-gradient(135deg, #1a3a2a 0%, #2d6a47 50%, #4a9968 100%)' },
+  { id: 'sp4', domain: 'Community at Large',      badgeColor: 'teal',   gradient: 'linear-gradient(160deg, #1a3a1a 0%, #2a5c2a 40%, #4a8c4a 100%)' },
+  { id: 'sp5', domain: 'Members of the Sorority', badgeColor: 'gold',   gradient: 'linear-gradient(135deg, #3a2a0a 0%, #8b6914 50%, #c9a84c 100%)' },
+  { id: 'sp6', domain: 'Members of the Sorority', badgeColor: 'gold',   gradient: 'linear-gradient(160deg, #2a1a0a 0%, #6b4a14 50%, #a8872e 100%)' },
+  { id: 'sp7', domain: 'Nations of the World',    badgeColor: 'violet', gradient: 'linear-gradient(135deg, #2a1a3a 0%, #5a2d7a 50%, #8b4fb5 100%)' },
+  { id: 'sp8', domain: 'Nations of the World',    badgeColor: 'violet', gradient: 'linear-gradient(160deg, #1a1a3a 0%, #3a2a6b 50%, #6a4db5 100%)' },
 ];
 
 export function Service() {
@@ -284,8 +286,17 @@ export function Service() {
             {servicePhotos.map(photo => (
               <Box key={photo.id} className={classes.photoCard}>
                 <Box className={classes.photoImage} style={{ background: photo.gradient }} />
+                {/* Static "Picture" label centered on the card */}
+                <Box className={classes.photoLabel}>
+                  <Text size="xs" c="rgba(255,255,255,0.45)" style={{ letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    Picture
+                  </Text>
+                </Box>
+                {/* Hover overlay reveals domain + blank caption line */}
                 <Box className={classes.photoOverlay}>
-                  <Text size="sm" fw={600} c="white" lh={1.3}>{photo.caption}</Text>
+                  <Text size="sm" fw={600} c="white" lh={1.5}>
+                    {photo.domain}: _______________
+                  </Text>
                 </Box>
                 <Badge
                   className={classes.photoBadge}

@@ -99,7 +99,7 @@ export const execBoard: ExecMember[] = [
   {
     id: 'pr-chair',
     name: 'Risha Khanna',
-    position: 'PR Chair',
+    position: 'Public Relations Chair',
     bio: 'Manages our public presence, social media accounts, and chapter communications to share our story and grow awareness of Nu Chapter across campus.',
     initial: 'R',
     gradient: 'linear-gradient(135deg, #4a1a2a, #8b3a5a)',

@@ -102,7 +102,7 @@ export function Team() {
               <Title order={3} style={{ color: '#fff', marginBottom: '0.25rem', fontFamily: 'Playfair Display, serif' }}>
                 Want to be part of something meaningful?
               </Title>
-              <Text c="dimmed">Applications are open. Join our team and start making an impact.</Text>
+              <Text c="dimmed">Rush week for next semester is coming up. We would love to see you there.</Text>
             </Box>
             <Button
               component={Link}

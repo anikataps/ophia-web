@@ -399,7 +399,7 @@ export function Service() {
               <Title order={3} style={{ color: '#fff', marginBottom: '0.25rem', fontFamily: 'Playfair Display, serif' }}>
                 Ready to make a real impact?
               </Title>
-              <Text c="dimmed">Join Nu Chapter and start logging service hours that matter.</Text>
+              <Text c="dimmed">Rush week for next semester is coming up. We would love to see you there.</Text>
             </Box>
             <Button
               component={Link}

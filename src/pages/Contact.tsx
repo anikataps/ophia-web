@@ -164,26 +164,26 @@ export function Contact() {
 
               {[
                 {
-                  // TODO: Confirm real contact email — Footer uses nu.president@omegaphialpha.org but this says nucorvid@opa.org. Reconcile.
+                  // TODO: Confirm real contact email — Footer uses nu.president@omegaphialpha.org but this says nu.president@omegaphialpha.org. Reconcile.
                   icon: <IconMail size={20} />,
                   label: 'Email',
-                  content: <Anchor href="mailto:nucorvid@opa.org" className={classes.infoLink}>nucorvid@opa.org</Anchor>,
+                  content: <Anchor href="mailto:nu.president@omegaphialpha.org" className={classes.infoLink}>nu.president@omegaphialpha.org</Anchor>,
                 },
                 {
-                  // TODO: Confirm correct Instagram handle (@opa.nu vs @gt_ophia) and add the real profile URL.
+                  // TODO: Confirm correct Instagram handle (@gt_ophia vs @gt_ophia) and add the real profile URL.
                   icon: <IconBrandInstagram size={20} />,
                   label: 'Instagram',
-                  content: <Anchor href="#" className={classes.infoLink}>@opa.nu</Anchor>,
+                  content: <Anchor href="https://www.instagram.com/gt_ophia" target="_blank" rel="noopener noreferrer" className={classes.infoLink}>@gt_ophia</Anchor>,
                 },
                 {
                   icon: <IconMapPin size={20} />,
                   label: 'Meeting Location',
-                  content: <Text size="sm">Student Union, Room 204</Text>,
+                  content: <Text size="sm">Mason 2117</Text>,
                 },
                 {
                   icon: <IconClock size={20} />,
                   label: 'Chapter Meetings',
-                  content: <Text size="sm">Every other Tuesday, 7:00 PM</Text>,
+                  content: <Text size="sm">Every Tuesday, 7:00 PM</Text>,
                 },
                 {
                   icon: <IconBrandSlack size={20} />,

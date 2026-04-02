@@ -84,11 +84,11 @@ export function Footer() {
             </Group>
             <Group gap={6} align="flex-start">
               <IconMapPin size={14} style={{ color: '#c9a84c', marginTop: 3, flexShrink: 0 }} />
-              <Text size="sm" c="dimmed">Student Union, Rm 204</Text>
+              <Text size="sm" c="dimmed">Mason 2117</Text>
             </Group>
             <Group gap={6} align="flex-start">
               <IconClock size={14} style={{ color: '#c9a84c', marginTop: 3, flexShrink: 0 }} />
-              <Text size="sm" c="dimmed">Every other Tue, 7 PM</Text>
+              <Text size="sm" c="dimmed">Every Tue, 7 PM</Text>
             </Group>
           </Stack>
         </SimpleGrid>

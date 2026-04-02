@@ -97,3 +97,24 @@
   color: #a8872e;
   font-weight: 700;
 }
+
+.searchInput {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.searchResult {
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.searchResult:hover {
+  background: #f0f4fa;
+}

@@ -28,6 +28,7 @@ const searchIndex = [
 function NavSearch() {
   const [query, setQuery]       = useState('');
   const [expanded, setExpanded] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const navigate                = useNavigate();
   const inputRef                = useRef<HTMLInputElement>(null);
 
@@ -37,25 +38,35 @@ function NavSearch() {
   };
 
   const collapse = () => {
-    if (!query) setExpanded(false);
+    if (!query) { setExpanded(false); setNotFound(false); }
   };
 
   const go = () => {
     const lower = query.toLowerCase().trim();
     if (!lower) return;
+    // Match if any keyword contains the query word OR any query word contains a keyword
+    const words = lower.split(/\s+/);
     const match = searchIndex.find(item =>
-      item.keywords.some(k => k.includes(lower))
+      item.keywords.some(k =>
+        k.includes(lower) ||
+        lower.includes(k) ||
+        words.some(w => k.includes(w) || w.includes(k))
+      )
     );
     if (match) {
       navigate(match.hash ? `${match.path}#${match.hash}` : match.path);
+      setQuery('');
+      setExpanded(false);
+      setNotFound(false);
+    } else {
+      setNotFound(true);
+      setTimeout(() => setNotFound(false), 1500);
     }
-    setQuery('');
-    setExpanded(false);
   };
 
   const handleKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') go();
-    if (e.key === 'Escape') { setQuery(''); setExpanded(false); }
+    if (e.key === 'Escape') { setQuery(''); setExpanded(false); setNotFound(false); }
   };
 
   return (
@@ -65,10 +76,10 @@ function NavSearch() {
       </Box>
       <input
         ref={inputRef}
-        className={`${classes.searchInput} ${expanded ? classes.searchInputExpanded : ''}`}
-        placeholder="Search…"
+        className={`${classes.searchInput} ${expanded ? classes.searchInputExpanded : ''} ${notFound ? classes.searchInputNotFound : ''}`}
+        placeholder={notFound ? 'Not found…' : 'Search…'}
         value={query}
-        onChange={e => setQuery(e.currentTarget.value)}
+        onChange={e => { setQuery(e.currentTarget.value); setNotFound(false); }}
         onKeyDown={handleKey}
         onBlur={collapse}
       />

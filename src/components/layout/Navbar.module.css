@@ -148,3 +148,8 @@
   border-bottom-color: rgba(255, 255, 255, 0.4);
   pointer-events: auto;
 }
+
+.searchInputNotFound {
+  border-bottom-color: #e05a5a !important;
+  color: #e05a5a !important;
+}

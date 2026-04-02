@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   Box, Container, Title, Text, SimpleGrid, Paper, Stack,
   Badge, Button, Group, Divider,
@@ -9,6 +10,28 @@ import { execBoard, spotlight } from '../data/team';
 import classes from './Team.module.css';
 
 export function Team() {
+  const [searchParams]          = useSearchParams();
+  const [bubbleId, setBubbleId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const hl = searchParams.get('highlight');
+    if (!hl) return;
+    const lower = hl.toLowerCase();
+    const match = execBoard.find(m =>
+      m.position.toLowerCase().includes(lower) ||
+      m.name.toLowerCase().includes(lower) ||
+      m.id.toLowerCase().includes(lower)
+    );
+    if (!match) return;
+    setBubbleId(match.id);
+    // Scroll to the card
+    setTimeout(() => {
+      document.getElementById(`exec-${match.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 80);
+    // Remove animation class after it finishes
+    setTimeout(() => setBubbleId(null), 1200);
+  }, [searchParams]);
+
   return (
     <Box>
       <PageHero
@@ -29,7 +52,14 @@ export function Team() {
           </Stack>
           <SimpleGrid cols={{ base: 1, xs: 2, sm: 3, lg: 4 }} spacing="lg">
             {execBoard.map(member => (
-              <Paper key={member.id} className={classes.execCard} p="xl" radius="lg" shadow="xs">
+              <Paper
+                key={member.id}
+                id={`exec-${member.id}`}
+                className={`${classes.execCard} ${bubbleId === member.id ? classes.execCardBubble : ''}`}
+                p="xl"
+                radius="lg"
+                shadow="xs"
+              >
                 <Stack align="center" gap="sm">
                   <Box className={classes.avatar} style={{ background: member.gradient }}>
                     {member.initial}

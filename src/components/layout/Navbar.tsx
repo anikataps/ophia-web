@@ -15,19 +15,31 @@ const links = [
 
 // Section-level search index — path + optional hash + optional subject pre-fill for contact
 const searchIndex = [
-  { path: '/',        hash: '',         subject: '', keywords: ['home', 'welcome', 'about', 'pillars', 'testimonials', 'omega phi alpha', 'nu chapter', 'who are you', 'what is ophia'] },
-  { path: '/service', hash: '',         subject: '', keywords: ['service', 'volunteer', 'hours', 'serve', 'volunteering', 'service project', 'giving back', 'community service'] },
-  { path: '/service', hash: '',         subject: '', keywords: ['mental health', 'awareness', 'counseling', 'wellness', 'well being'] },
-  { path: '/service', hash: '',         subject: '', keywords: ['families', 'strengthening families', 'family', 'president project'] },
-  { path: '/join',    hash: 'why',      subject: '', keywords: ['why join', 'why should i join', 'why should i', 'benefits of joining', 'reasons to join', 'what do i get', 'what are the benefits', 'is it worth it'] },
-  { path: '/join',    hash: 'rush',     subject: '', keywords: ['how do i join', 'how to join', 'join', 'rush', 'recruit', 'recruitment', 'pledge', 'bid day', 'rose night', 'become a member', 'sign up', 'membership', 'requirements', 'new member'] },
-  { path: '/join',    hash: 'connect',  subject: '', keywords: ['stay connected', 'how do i stay connected', 'slack', 'reach out directly', 'connect', 'keep in touch'] },
-  { path: '/team',    hash: '',         subject: '', keywords: ['team', 'officers', 'leadership', 'exec', 'board', 'president', 'treasurer', 'secretary', 'who leads', 'who runs', 'members'] },
-  { path: '/contact', hash: '',         subject: '',              keywords: ['contact', 'email', 'location', 'meeting', 'instagram', 'facebook', 'reach out', 'get in touch', 'find you'] },
-  { path: '/contact', hash: '',         subject: 'partnerships',  keywords: ['partner', 'partnership', 'how do i partner', 'collaborate', 'work together', 'organization', 'sponsor', 'nonprofit'] },
-  { path: '/contact', hash: '',         subject: 'recruitment',   keywords: ['question about joining', 'rush question', 'rush info', 'joining question'] },
-  { path: '/contact', hash: '',         subject: 'service',       keywords: ['service opportunity', 'volunteer opportunity', 'service question'] },
-  { path: '/contact', hash: '',         subject: 'general',       keywords: ['question', 'ask', 'inquiry', 'info', 'information', 'help', 'hello', 'hi'] },
+  { path: '/',        hash: '',         subject: '', highlight: '', keywords: ['home', 'welcome', 'about', 'pillars', 'testimonials', 'omega phi alpha', 'nu chapter', 'who are you', 'what is ophia'] },
+  { path: '/service', hash: '',         subject: '', highlight: '', keywords: ['service', 'volunteer', 'hours', 'serve', 'volunteering', 'service project', 'giving back', 'community service'] },
+  { path: '/service', hash: '',         subject: '', highlight: '', keywords: ['mental health', 'awareness', 'counseling', 'wellness', 'well being'] },
+  { path: '/service', hash: '',         subject: '', highlight: '', keywords: ['families', 'strengthening families', 'family', 'president project'] },
+  { path: '/join',    hash: 'why',      subject: '', highlight: '', keywords: ['why join', 'why should i join', 'why should i', 'benefits of joining', 'reasons to join', 'what do i get', 'what are the benefits', 'is it worth it'] },
+  { path: '/join',    hash: 'rush',     subject: '', highlight: '', keywords: ['how do i join', 'how to join', 'join', 'rush', 'recruit', 'recruitment', 'pledge', 'bid day', 'rose night', 'become a member', 'sign up', 'membership', 'requirements', 'new member'] },
+  { path: '/join',    hash: 'connect',  subject: '', highlight: '', keywords: ['stay connected', 'how do i stay connected', 'slack', 'reach out directly', 'connect', 'keep in touch'] },
+  { path: '/team',    hash: '', subject: '', highlight: '',                      keywords: ['team', 'officers', 'leadership', 'exec', 'board', 'who leads', 'who runs', 'members'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'president',             keywords: ['president', 'deidre', 'deidre schulte'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'vp',                    keywords: ['vice president', 'vp', 'callie', 'callie brumfield'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'treasurer',             keywords: ['treasurer', 'angela', 'angela juric'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'secretary',             keywords: ['secretary', 'alumni liaison', 'makayla', 'makayla mitchler'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'service-director-1',    keywords: ['service director', 'jenna', 'jenna grot'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'service-director-2',    keywords: ['lynna', 'lynna kim'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'membership-director-1', keywords: ['membership director', 'diya', 'diya nair'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'membership-director-2', keywords: ['nem', 'nem rentz'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'sisterhood-director',   keywords: ['sisterhood director', 'zahra', 'zahra rangoonwala'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'outreach-chair',        keywords: ['outreach chair', 'outreach', 'anika', 'anika tapshalkar'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'pr-chair',              keywords: ['public relations', 'pr chair', 'risha', 'risha khanna'] },
+  { path: '/team',    hash: '', subject: '', highlight: 'ado',                   keywords: ['district officer', 'active district', 'jasmine', 'jasmine lopez'] },
+  { path: '/contact', hash: '',         subject: '', highlight: '', keywords: ['contact', 'email', 'location', 'meeting', 'instagram', 'facebook', 'reach out', 'get in touch', 'find you'] },
+  { path: '/contact', hash: '',         subject: 'partnerships', highlight: '', keywords: ['partner', 'partnership', 'how do i partner', 'collaborate', 'work together', 'organization', 'sponsor', 'nonprofit'] },
+  { path: '/contact', hash: '',         subject: 'recruitment', highlight: '', keywords: ['question about joining', 'rush question', 'rush info', 'joining question'] },
+  { path: '/contact', hash: '',         subject: 'service', highlight: '', keywords: ['service opportunity', 'volunteer opportunity', 'service question'] },
+  { path: '/contact', hash: '',         subject: 'general', highlight: '', keywords: ['question', 'ask', 'inquiry', 'info', 'information', 'help', 'hello', 'hi'] },
 ];
 
 // Strip common question/filler phrases before matching
@@ -82,7 +94,8 @@ function NavSearch() {
     const match = scored.length > 0 ? scored[0].item : null;
     if (match) {
       let dest = match.hash ? `${match.path}#${match.hash}` : match.path;
-      if (match.subject) dest = `${match.path}?subject=${match.subject}`;
+      if (match.subject)    dest = `${match.path}?subject=${match.subject}`;
+      if (match.highlight)  dest = `${match.path}?highlight=${match.highlight}`;
 
       // If already on the same page, ScrollToTop won't fire — scroll directly instead
       if (match.hash && location.pathname === match.path) {

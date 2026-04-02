@@ -15,18 +15,19 @@ const links = [
 
 // Section-level search index — path + optional hash + optional subject pre-fill for contact
 const searchIndex = [
-  { path: '/',        hash: '',      subject: '',              keywords: ['home', 'welcome', 'about', 'pillars', 'testimonials', 'omega phi alpha', 'nu chapter', 'who are you', 'what is ophia'] },
-  { path: '/service', hash: '',      subject: '',              keywords: ['service', 'volunteer', 'hours', 'serve', 'volunteering', 'service project', 'giving back', 'community service'] },
-  { path: '/service', hash: '',      subject: '',              keywords: ['mental health', 'awareness', 'counseling', 'wellness', 'well being'] },
-  { path: '/service', hash: '',      subject: '',              keywords: ['families', 'strengthening families', 'family', 'president project'] },
-  { path: '/join',    hash: 'rush',  subject: '',              keywords: ['join', 'rush', 'recruit', 'recruitment', 'pledge', 'bid day', 'rose night', 'become a member', 'how do i join', 'sign up', 'membership', 'requirements', 'new member', 'sisterhood'] },
-  { path: '/join',    hash: 'why',   subject: '',              keywords: ['why', 'benefits', 'reason', 'why should i', 'what do i get', 'what are the benefits'] },
-  { path: '/team',    hash: '',      subject: '',              keywords: ['team', 'officers', 'leadership', 'exec', 'board', 'president', 'treasurer', 'secretary', 'who leads', 'who runs', 'members'] },
-  { path: '/contact', hash: '',      subject: '',              keywords: ['contact', 'email', 'location', 'meeting', 'instagram', 'facebook', 'reach out', 'get in touch', 'find you'] },
-  { path: '/contact', hash: '',      subject: 'partnerships',  keywords: ['partner', 'partnership', 'collaborate', 'work together', 'organization', 'sponsor', 'nonprofit'] },
-  { path: '/contact', hash: '',      subject: 'recruitment',   keywords: ['question about joining', 'rush question', 'rush info', 'joining question'] },
-  { path: '/contact', hash: '',      subject: 'service',       keywords: ['service opportunity', 'volunteer opportunity', 'service question'] },
-  { path: '/contact', hash: '',      subject: 'general',       keywords: ['question', 'ask', 'inquiry', 'info', 'information', 'help', 'hello', 'hi'] },
+  { path: '/',        hash: '',         subject: '', keywords: ['home', 'welcome', 'about', 'pillars', 'testimonials', 'omega phi alpha', 'nu chapter', 'who are you', 'what is ophia'] },
+  { path: '/service', hash: '',         subject: '', keywords: ['service', 'volunteer', 'hours', 'serve', 'volunteering', 'service project', 'giving back', 'community service'] },
+  { path: '/service', hash: '',         subject: '', keywords: ['mental health', 'awareness', 'counseling', 'wellness', 'well being'] },
+  { path: '/service', hash: '',         subject: '', keywords: ['families', 'strengthening families', 'family', 'president project'] },
+  { path: '/join',    hash: 'why',      subject: '', keywords: ['why join', 'why should i join', 'why should i', 'benefits of joining', 'reasons to join', 'what do i get', 'what are the benefits', 'is it worth it'] },
+  { path: '/join',    hash: 'rush',     subject: '', keywords: ['how do i join', 'how to join', 'join', 'rush', 'recruit', 'recruitment', 'pledge', 'bid day', 'rose night', 'become a member', 'sign up', 'membership', 'requirements', 'new member'] },
+  { path: '/join',    hash: 'connect',  subject: '', keywords: ['stay connected', 'how do i stay connected', 'slack', 'reach out directly', 'connect', 'keep in touch'] },
+  { path: '/team',    hash: '',         subject: '', keywords: ['team', 'officers', 'leadership', 'exec', 'board', 'president', 'treasurer', 'secretary', 'who leads', 'who runs', 'members'] },
+  { path: '/contact', hash: '',         subject: '',              keywords: ['contact', 'email', 'location', 'meeting', 'instagram', 'facebook', 'reach out', 'get in touch', 'find you'] },
+  { path: '/contact', hash: '',         subject: 'partnerships',  keywords: ['partner', 'partnership', 'how do i partner', 'collaborate', 'work together', 'organization', 'sponsor', 'nonprofit'] },
+  { path: '/contact', hash: '',         subject: 'recruitment',   keywords: ['question about joining', 'rush question', 'rush info', 'joining question'] },
+  { path: '/contact', hash: '',         subject: 'service',       keywords: ['service opportunity', 'volunteer opportunity', 'service question'] },
+  { path: '/contact', hash: '',         subject: 'general',       keywords: ['question', 'ask', 'inquiry', 'info', 'information', 'help', 'hello', 'hi'] },
 ];
 
 // Strip common question/filler phrases before matching
@@ -36,6 +37,20 @@ function normalise(q: string) {
     .replace(/^(how do i|how to|how can i|what is|what are|where is|where can i|when is|can i|do you have|tell me about|i want to|i need to|show me|what about|i have a)\s+/i, '')
     .replace(/[?!.,]+$/, '')
     .trim();
+}
+
+// Score an entry: higher = better match
+function scoreEntry(item: typeof searchIndex[0], words: string[], lower: string) {
+  let total = 0;
+  for (const k of item.keywords) {
+    if (k === lower)            { total += 10; continue; } // exact match
+    if (lower.includes(k))      { total += 4;  continue; } // full keyword inside query
+    if (k.includes(lower))      { total += 4;  continue; } // full query inside keyword
+    for (const w of words) {
+      if (w.length > 2 && (k === w || k.includes(w) || w.includes(k))) total += 1;
+    }
+  }
+  return total;
 }
 
 function NavSearch() {
@@ -60,13 +75,11 @@ function NavSearch() {
     if (!raw) return;
     const lower = normalise(raw);
     const words = lower.split(/\s+/).filter(w => w.length > 2);
-    const match = searchIndex.find(item =>
-      item.keywords.some(k =>
-        k.includes(lower) ||
-        lower.includes(k) ||
-        words.some(w => k.includes(w) || w.includes(k))
-      )
-    );
+    const scored = searchIndex
+      .map(item => ({ item, score: scoreEntry(item, words, lower) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score);
+    const match = scored.length > 0 ? scored[0].item : null;
     if (match) {
       let dest = match.hash ? `${match.path}#${match.hash}` : match.path;
       if (match.subject) dest = `${match.path}?subject=${match.subject}`;

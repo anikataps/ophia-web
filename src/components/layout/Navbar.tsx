@@ -97,11 +97,15 @@ function NavSearch() {
       if (match.subject)    dest = `${match.path}?subject=${match.subject}`;
       if (match.highlight)  dest = `${match.path}?highlight=${match.highlight}`;
 
-      // If already on the same page, ScrollToTop won't fire — scroll directly instead
-      if (match.hash && location.pathname === match.path) {
-        setTimeout(() => {
-          document.getElementById(match.hash)?.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
+      // If already on the same page, ScrollToTop won't fire — handle scrolling directly
+      if (location.pathname === match.path) {
+        if (match.hash) {
+          setTimeout(() => {
+            document.getElementById(match.hash)?.scrollIntoView({ behavior: 'smooth' });
+          }, 50);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
 
       navigate(dest);

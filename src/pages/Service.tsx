@@ -184,7 +184,7 @@ export function Service() {
               </Text>
               <Button
                 component={Link}
-                to="/join"
+                to="/join#rush"
                 variant="outline"
                 color="navy"
                 size="md"

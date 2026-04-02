@@ -21,7 +21,7 @@ export function Contact() {
 
   // Web3Forms integration — get a free access key at https://web3forms.com
   // Enter anika.taps@gmail.com, then paste the key you receive below.
-  const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE'; // TODO: Replace with real key from web3forms.com
+  const WEB3FORMS_KEY = '83e0ef36-8ef0-4052-9a87-9af93815b2cc'; // TODO: Replace with real key from web3forms.com
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

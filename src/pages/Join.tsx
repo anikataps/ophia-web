@@ -72,7 +72,7 @@ export function Join() {
             <Title order={2} className={classes.sectionTitle}>Why Join Nu Chapter?</Title>
             <Divider color="#c9a84c" maw={80} />
             <Text c="dimmed" ta="center" maw={560}>
-              More than a sorority. A community that challenges and champions you every step of the way.
+              We are more than a sorority. We are a community that challenges and champions you every step of the way.
             </Text>
           </Stack>
           <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">

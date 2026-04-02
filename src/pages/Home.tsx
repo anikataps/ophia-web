@@ -286,7 +286,7 @@ export function Home() {
               </Title>
               {/* TODO: Update this text to reflect whether applications are actually open or closed. */}
               <Text style={{ color: 'rgba(26,39,68,0.75)' }}>
-                Rush week is just around the corner. We cannot wait to meet you next semester!
+                Rush week is coming up next semester. We cannot wait to meet you!
               </Text>
             </Box>
             <Button

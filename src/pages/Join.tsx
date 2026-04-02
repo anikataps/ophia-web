@@ -106,7 +106,7 @@ export function Join() {
               <Stack gap="xl">
                 {steps.map(step => (
                   <Group key={step.n} gap="lg" align="flex-start" wrap="nowrap">
-                    <Box className={classes.stepNumber}>{step.n}</Box>
+                    <Box className={classes.stepNumber} />
                     <Box>
                       <Text fw={700} mb={4} style={{ color: '#1a2744' }}>{step.title}</Text>
                       <Text c="dimmed" size="sm" lh={1.7}>{step.desc}</Text>

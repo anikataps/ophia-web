@@ -19,18 +19,38 @@ export function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // TODO: Connect this form to a real email backend before launch.
-  // Options: EmailJS (free, no server needed), Formspree, or a serverless function (Netlify/Vercel/CF Workers)
-  // that calls SendGrid or Resend. Remove the fake setTimeout below once integrated.
-  const handleSubmit = (e: React.FormEvent) => {
+  // Web3Forms integration — get a free access key at https://web3forms.com
+  // Enter anika.taps@gmail.com, then paste the key you receive below.
+  const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY_HERE'; // TODO: Replace with real key from web3forms.com
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !subject || !message) return;
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name,
+          email,
+          subject: `Nu Chapter Website — ${subject}`,
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSuccess(true);
+        setName(''); setEmail(''); setSubject(null); setMessage('');
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      alert('Something went wrong. Please try emailing us directly.');
+    } finally {
       setLoading(false);
-      setSuccess(true);
-      setName(''); setEmail(''); setSubject(null); setMessage('');
-    }, 800);
+    }
   };
 
   return (

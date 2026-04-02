@@ -20,13 +20,22 @@ export function Contact() {
   const [success, setSuccess] = useState(false);
 
   // Web3Forms integration — get a free access key at https://web3forms.com
-  // Enter anika.taps@gmail.com, then paste the key you receive below.
-  const WEB3FORMS_KEY = '83e0ef36-8ef0-4052-9a87-9af93815b2cc'; // TODO: Replace with real key from web3forms.com
+  const WEB3FORMS_KEY = '83e0ef36-8ef0-4052-9a87-9af93815b2cc';
+
+  const subjectLabels: Record<string, string> = {
+    general:      'General Question',
+    recruitment:  'Recruitment',
+    service:      'Service Opportunities',
+    partnerships: 'Partnerships',
+    photo:        'Photo Submission',
+    other:        'Other',
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !subject || !message) return;
     setLoading(true);
+    const subjectLabel = subjectLabels[subject] ?? subject;
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -35,8 +44,8 @@ export function Contact() {
           access_key: WEB3FORMS_KEY,
           name,
           email,
-          subject: `Nu Chapter Website — ${subject}`,
-          message,
+          subject: `Nu Chapter Website — ${subjectLabel}`,
+          message: `Topic: ${subjectLabel}\n\n${message}`,
         }),
       });
       const data = await res.json();

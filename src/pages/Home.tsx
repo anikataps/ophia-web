@@ -286,7 +286,7 @@ export function Home() {
               </Title>
               {/* TODO: Update this text to reflect whether applications are actually open or closed. */}
               <Text style={{ color: 'rgba(26,39,68,0.75)' }}>
-                Applications for our next recruitment cycle are now open.
+                Learn how to join us for the next semester.
               </Text>
             </Box>
             <Button

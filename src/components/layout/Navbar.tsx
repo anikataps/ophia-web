@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { Group, Text, Box, Burger, Drawer, Stack } from '@mantine/core';
 import { useDisclosure, useWindowScroll } from '@mantine/hooks';
 import { IconSearch } from '@tabler/icons-react';
@@ -43,6 +43,7 @@ function NavSearch() {
   const [expanded, setExpanded] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const navigate                = useNavigate();
+  const location                = useLocation();
   const inputRef                = useRef<HTMLInputElement>(null);
 
   const expand = () => {
@@ -69,6 +70,14 @@ function NavSearch() {
     if (match) {
       let dest = match.hash ? `${match.path}#${match.hash}` : match.path;
       if (match.subject) dest = `${match.path}?subject=${match.subject}`;
+
+      // If already on the same page, ScrollToTop won't fire — scroll directly instead
+      if (match.hash && location.pathname === match.path) {
+        setTimeout(() => {
+          document.getElementById(match.hash)?.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      }
+
       navigate(dest);
       setQuery('');
       setExpanded(false);

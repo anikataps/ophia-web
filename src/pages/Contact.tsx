@@ -5,7 +5,7 @@ import {
   TextInput, Textarea, Select, Button, Alert, Group, Divider, Anchor,
 } from '@mantine/core';
 import {
-  IconMail, IconBrandInstagram, IconMapPin, IconClock,
+  IconMail, IconBrandInstagram, IconBrandFacebook, IconMapPin, IconClock,
   IconBrandSlack, IconCheck, IconArrowRight,
 } from '@tabler/icons-react';
 import { PageHero } from '../components/layout/PageHero';
@@ -174,6 +174,11 @@ export function Contact() {
                   icon: <IconBrandInstagram size={20} />,
                   label: 'Instagram',
                   content: <Anchor href="https://www.instagram.com/gt_ophia" target="_blank" rel="noopener noreferrer" className={classes.infoLink}>@gt_ophia</Anchor>,
+                },
+                {
+                  icon: <IconBrandFacebook size={20} />,
+                  label: 'Facebook',
+                  content: <Anchor href="https://www.facebook.com/omegaphialphagt" target="_blank" rel="noopener noreferrer" className={classes.infoLink}>omegaphialphagt</Anchor>,
                 },
                 {
                   icon: <IconMapPin size={20} />,

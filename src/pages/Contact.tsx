@@ -9,6 +9,7 @@ import {
   IconCheck, IconArrowRight, IconQuestionMark,
 } from '@tabler/icons-react';
 import { PageHero } from '../components/layout/PageHero';
+import { CopyEmail } from '../components/CopyEmail';
 import classes from './Contact.module.css';
 
 const faqs = [
@@ -221,7 +222,7 @@ export function Contact() {
                 {
                   icon: <IconMail size={20} />,
                   label: 'Email',
-                  content: <Anchor href="mailto:nu.president@omegaphialpha.org" className={classes.infoLink}>nu.president@omegaphialpha.org</Anchor>,
+                  content: <CopyEmail email="nu.president@omegaphialpha.org" className={classes.infoLink} />,
                 },
                 {
                   icon: <IconBrandInstagram size={20} />,

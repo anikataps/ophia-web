@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Box, Container, Group, Text, Stack, SimpleGrid, Anchor, Divider, Tooltip, ActionIcon } from '@mantine/core';
 import { useClipboard } from '@mantine/hooks';
 import { IconBrandInstagram, IconMail, IconMapPin, IconClock, IconBrandFacebook, IconCheck } from '@tabler/icons-react';
+import { CopyEmail } from '../CopyEmail';
 import classes from './Footer.module.css';
 
 const EMAIL = 'nu.president@omegaphialpha.org';
@@ -73,7 +74,7 @@ export function Footer() {
             <Text className={classes.colTitle}>Contact</Text>
             <Group gap={6} align="flex-start">
               <IconMail size={14} style={{ color: '#c9a84c', marginTop: 3, flexShrink: 0 }} />
-              <Anchor href="mailto:nu.president@omegaphialpha.org" className={classes.footerLink} size="sm">nu.president@omegaphialpha.org</Anchor>
+              <CopyEmail email="nu.president@omegaphialpha.org" className={classes.footerLink} />
             </Group>
             <Group gap={6} align="flex-start">
               <IconBrandInstagram size={14} style={{ color: '#c9a84c', marginTop: 3, flexShrink: 0 }} />

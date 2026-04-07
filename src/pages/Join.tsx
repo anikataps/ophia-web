@@ -11,6 +11,7 @@ import {
   IconChevronLeft, IconChevronRight, IconBell,
 } from '@tabler/icons-react';
 import { PageHero } from '../components/layout/PageHero';
+import { CopyEmail } from '../components/CopyEmail';
 import classes from './Join.module.css';
 
 const whyJoin = [
@@ -298,10 +299,8 @@ export function Join() {
                 <Text size="sm" c="dimmed">
                   <strong style={{ color: '#1a2744' }}>Not sure if you qualify?</strong>{' '}
                   Reach out to our Membership Directors at{' '}
-                  <a href="mailto:nu.membership@omegaphialpha.org" style={{ color: '#a8872e', fontWeight: 600 }}>
-                    nu.membership@omegaphialpha.org
-                  </a>
-                  . We're happy to answer any questions before Rush Week.
+                  <CopyEmail email="nu.membership@omegaphialpha.org" />{' '}
+                  — we're happy to answer any questions before Rush Week.
                 </Text>
               </Paper>
             </Box>

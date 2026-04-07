@@ -48,14 +48,13 @@ const requirements = [
   'Agreement to uphold the Omega Phi Alpha National Code of Conduct',
 ];
 
-// TODO: Replace gradient placeholders with real sisterhood/rush photos.
 const joinPhotos = [
-  { id: 'jp1', label: 'Rush Week',            gradient: 'linear-gradient(135deg, #1a2744 0%, #3a5a9b 100%)' },
-  { id: 'jp2', label: 'Bid Day',              gradient: 'linear-gradient(135deg, #3a2a0a 0%, #8b6914 50%, #c9a84c 100%)' },
-  { id: 'jp3', label: 'New Member Education', gradient: 'linear-gradient(135deg, #1a3a2a 0%, #2d6a47 50%, #4a9968 100%)' },
-  { id: 'jp4', label: 'Rose Night',           gradient: 'linear-gradient(135deg, #4a1a2a 0%, #8b3a5a 50%, #c45d7a 100%)' },
-  { id: 'jp5', label: 'Chapter Meetings',     gradient: 'linear-gradient(135deg, #2a1a3a 0%, #5a2d7a 50%, #8b4fb5 100%)' },
-  { id: 'jp6', label: 'Sisterhood Events',    gradient: 'linear-gradient(135deg, #1a3a4a 0%, #2d6a8a 50%, #4a9bb5 100%)' },
+  { id: 'jp1', label: 'Pinning Ceremony',   image: '/images/sisterhood/pinning.jpg',           objectPosition: 'center' },
+  { id: 'jp2', label: 'Formal',             image: '/images/sisterhood/formal.jpg',             objectPosition: 'center' },
+  { id: 'jp3', label: 'Sisterhood Retreat', image: '/images/sisterhood/sisterhood retreat.jpg', objectPosition: 'center' },
+  { id: 'jp4', label: 'Pumpkin Patch',      image: '/images/sisterhood/Pumpkin patch.jpg',      objectPosition: 'center' },
+  { id: 'jp5', label: 'Boo at the Zoo',     image: '/images/sisterhood/boo at the zoo.jpg',     objectPosition: 'center' },
+  { id: 'jp6', label: 'Summit at Auburn',   image: '/images/sisterhood/summit at auburn.jpg',   objectPosition: 'center' },
 ];
 
 function JoinSlideshow() {
@@ -82,12 +81,12 @@ function JoinSlideshow() {
 
   return (
     <Box className={classes.slideshowWrap}>
-      <Box className={classes.slideshowCard} style={{ background: photo.gradient }}>
-        <Box className={classes.photoLabel}>
-          <Text size="xs" style={{ color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            Picture
-          </Text>
-        </Box>
+      <Box className={classes.slideshowCard} style={{ background: '#1a2744', overflow: 'hidden' }}>
+        <img
+          src={photo.image}
+          alt={photo.label}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: photo.objectPosition }}
+        />
         <Box className={classes.photoOverlay}>
           <Text size="sm" fw={600} c="white" lh={1.5}>{photo.label}</Text>
         </Box>

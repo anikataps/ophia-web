@@ -1,13 +1,13 @@
 import { CopyButton, Tooltip, Text } from '@mantine/core';
-import { IconCheck, IconCopy } from '@tabler/icons-react';
 
 interface CopyEmailProps {
   email: string;
   className?: string;
   size?: string;
+  color?: string;
 }
 
-export function CopyEmail({ email, className, size = 'sm' }: CopyEmailProps) {
+export function CopyEmail({ email, className, size = 'sm', color }: CopyEmailProps) {
   return (
     <CopyButton value={email} timeout={2000}>
       {({ copied, copy }) => (
@@ -17,12 +17,9 @@ export function CopyEmail({ email, className, size = 'sm' }: CopyEmailProps) {
             size={size}
             className={className}
             onClick={copy}
-            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+            style={{ cursor: 'pointer', ...(color ? { color } : {}) }}
           >
-            {email}
-            {copied
-              ? <IconCheck size={13} style={{ flexShrink: 0 }} />
-              : <IconCopy size={13} style={{ flexShrink: 0, opacity: 0.5 }} />}
+            {copied ? 'Copied!' : email}
           </Text>
         </Tooltip>
       )}

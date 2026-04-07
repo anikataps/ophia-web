@@ -299,7 +299,7 @@ export function Join() {
                 <Text size="sm" c="dimmed">
                   <strong style={{ color: '#1a2744' }}>Not sure if you qualify?</strong>{' '}
                   Reach out to our Membership Directors at{' '}
-                  <CopyEmail email="nu.membership@omegaphialpha.org" />{' '}
+                  <CopyEmail email="nu.membership@omegaphialpha.org" color="#a8872e" />{' '}
                   — we're happy to answer any questions before Rush Week.
                 </Text>
               </Paper>

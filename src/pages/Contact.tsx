@@ -5,7 +5,7 @@ import {
   TextInput, Textarea, Select, Button, Alert, Group, Divider, Anchor, Accordion,
 } from '@mantine/core';
 import {
-  IconMail, IconBrandInstagram, IconBrandFacebook, IconMapPin, IconClock,
+  IconMail, IconBrandInstagram, IconBrandFacebook,
   IconCheck, IconArrowRight, IconQuestionMark,
 } from '@tabler/icons-react';
 import { PageHero } from '../components/layout/PageHero';
@@ -31,19 +31,19 @@ const faqs = [
   },
   {
     q: 'Are dues required, and is financial assistance available?',
-    a: 'Yes, chapter dues are required each semester to support chapter programming, national dues, and events. We understand that finances can be a barrier, and financial assistance is available — please reach out to our Membership Directors confidentially if you need support.',
+    a: 'Yes, chapter dues are required each semester to support chapter programming, national dues, and events. We understand that finances can be a barrier, and financial assistance is available — please reach out to our vice president confidentially if you need support.',
   },
   {
     q: 'What does the new member process look like?',
-    a: 'After Bid Day, new members go through a New Member Education program that covers the history, values, and traditions of Omega Phi Alpha. The process concludes with Rose Night, a ceremony in which new members are officially welcomed as full sisters of the chapter.',
+    a: 'New members must attend a service event during rush week to receive a bid. After Bid Day, new members go through a New Member Education program that covers the history, values, and traditions of Omega Phi Alpha. The process concludes with Rose Night, a ceremony in which new members are officially welcomed as full sisters of the chapter.',
   },
   {
-    q: 'How is Nu Chapter different from a social sorority?',
+    q: 'How is Omega Phi Alpha different from a panhellenic sorority?',
     a: 'Omega Phi Alpha is a service sorority, meaning our primary focus is community impact rather than social programming. While we do hold sisterhood events and build close friendships, every member joins with a commitment to service as the foundation of their membership.',
   },
   {
     q: 'What does a typical chapter meeting look like?',
-    a: 'Chapter meetings are held every Tuesday at 7:00 PM in Mason 2117. They typically cover upcoming service events, chapter announcements, committee updates, and sisterhood business. Meetings are a great way to stay connected with the chapter and know what\'s coming up each week.',
+    a: 'Chapter meetings are held every week. They typically cover upcoming service events, chapter announcements, committee updates, and sisterhood business. Meetings are a great way to stay connected with the chapter and know what\'s coming up each week.',
   },
   {
     q: 'What kinds of organizations does Nu Chapter partner with?',
@@ -208,7 +208,7 @@ export function Contact() {
             </Paper>
 
             {/* INFO */}
-            <Stack gap="lg" justify="flex-start">
+            <Stack gap="lg" justify="flex-start" style={{ display: 'flex', flexDirection: 'column' }}>
               <Box>
                 <Title order={2} className={classes.infoTitle} mb={4}>Get in Touch</Title>
                 <Divider color="#c9a84c" maw={60} mb="md" />
@@ -234,18 +234,8 @@ export function Contact() {
                   label: 'Facebook',
                   content: <Anchor href="https://www.facebook.com/omegaphialphagt" target="_blank" rel="noopener noreferrer" className={classes.infoLink}>omegaphialphagt</Anchor>,
                 },
-                {
-                  icon: <IconMapPin size={20} />,
-                  label: 'Meeting Location',
-                  content: <Text size="sm">Mason 2117</Text>,
-                },
-                {
-                  icon: <IconClock size={20} />,
-                  label: 'Chapter Meetings',
-                  content: <Text size="sm">Every Tuesday, 7:00 PM</Text>,
-                },
               ].map(item => (
-                <Paper key={item.label} p="md" radius="md" className={classes.infoCard}>
+                <Paper key={item.label} p="md" radius="md" className={classes.infoCard} style={{ flex: 1 }}>
                   <Group gap="md" align="flex-start" wrap="nowrap">
                     <Box className={classes.infoIcon}>{item.icon}</Box>
                     <Box>

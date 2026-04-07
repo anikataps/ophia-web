@@ -40,6 +40,18 @@ const faqs = [
     q: 'How is Nu Chapter different from a social sorority?',
     a: 'Omega Phi Alpha is a service sorority, meaning our primary focus is community impact rather than social programming. While we do hold sisterhood events and build close friendships, every member joins with a commitment to service as the foundation of their membership.',
   },
+  {
+    q: 'What does a typical chapter meeting look like?',
+    a: 'Chapter meetings are held every Tuesday at 7:00 PM in Mason 2117. They typically cover upcoming service events, chapter announcements, committee updates, and sisterhood business. Meetings are a great way to stay connected with the chapter and know what\'s coming up each week.',
+  },
+  {
+    q: 'What kinds of organizations does Nu Chapter partner with?',
+    a: 'We partner with a wide range of local nonprofits, campus organizations, and community groups — from food banks and literacy programs to environmental initiatives and youth mentorship organizations. Our Outreach Chair is always working to bring in new partnerships each semester.',
+  },
+  {
+    q: 'Do I need prior volunteer experience to join?',
+    a: 'Not at all! We welcome students at any stage of their service journey. What matters most is a genuine passion for giving back and a willingness to show up. We will help you find opportunities that fit your schedule, interests, and goals.',
+  },
 ];
 
 export function Contact() {
@@ -49,6 +61,7 @@ export function Contact() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
   const [searchParams]        = useSearchParams();
 
   // Pre-fill subject from URL param (e.g. /contact?subject=partnerships) and scroll to form
@@ -112,9 +125,9 @@ export function Contact() {
         subtitle="Whether you have a question about membership, a partnership idea, or just want to say hello, our inbox is open."
       />
 
-      <Box py="5rem">
+      <Box py="3rem">
         <Container size="xl">
-          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="4rem">
+          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="3rem">
 
             {/* FORM */}
             <Paper id="contact-form" p="2rem" radius="lg" shadow="xs" style={{ border: '1px solid rgba(26,39,68,0.08)' }}>
@@ -249,34 +262,44 @@ export function Contact() {
       </Box>
 
       {/* FAQ */}
-      <Box id="faq" py="5rem" style={{ background: '#f8f9fc' }}>
+      <Box id="faq" py="2.5rem" style={{ background: '#f8f9fc' }}>
         <Container size="xl">
-          <Stack align="center" mb="3rem" gap="sm">
+          <Stack align="center" mb="1.5rem" gap="sm">
             <Box className={classes.faqIconWrap}>
               <IconQuestionMark size={24} />
             </Box>
             <Title order={2} className={classes.infoTitle}>Frequently Asked Questions</Title>
             <Divider color="#c9a84c" maw={80} />
-            <Text c="dimmed" ta="center" maw={520}>
+            <Text c="dimmed" ta="center">
               Can't find what you're looking for? Send us a message above and we'll get back to you.
             </Text>
           </Stack>
-          <Accordion
-            variant="separated"
-            radius="lg"
-            maw={760}
-            mx="auto"
-            classNames={{ item: classes.faqItem, control: classes.faqControl, label: classes.faqLabel }}
-          >
-            {faqs.map((faq, i) => (
-              <Accordion.Item key={i} value={String(i)}>
-                <Accordion.Control>{faq.q}</Accordion.Control>
-                <Accordion.Panel>
-                  <Text size="sm" c="dimmed" lh={1.8}>{faq.a}</Text>
-                </Accordion.Panel>
-              </Accordion.Item>
-            ))}
-          </Accordion>
+          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+            {(() => {
+              const mid = Math.ceil(faqs.length / 2);
+              const cols = [faqs.slice(0, mid), faqs.slice(mid)];
+              const offsets = [0, mid];
+              return cols.map((col, ci) => (
+                <Accordion
+                  key={ci}
+                  variant="separated"
+                  radius="lg"
+                  value={openFaq}
+                  onChange={setOpenFaq}
+                  classNames={{ item: classes.faqItem, control: classes.faqControl, label: classes.faqLabel }}
+                >
+                  {col.map((faq, i) => (
+                    <Accordion.Item key={i} value={String(offsets[ci] + i)}>
+                      <Accordion.Control>{faq.q}</Accordion.Control>
+                      <Accordion.Panel>
+                        <Text size="sm" c="dimmed" lh={1.8}>{faq.a}</Text>
+                      </Accordion.Panel>
+                    </Accordion.Item>
+                  ))}
+                </Accordion>
+              ));
+            })()}
+          </SimpleGrid>
         </Container>
       </Box>
 

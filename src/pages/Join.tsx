@@ -293,21 +293,18 @@ export function Join() {
           </Stack>
           <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
             <Paper className={classes.connectCard} p="xl" radius="lg" shadow="xs">
-              <Stack gap="md">
+              <Stack gap="md" justify="space-between" h="100%">
                 <Box className={classes.connectIcon}><IconBrandInstagram size={28} /></Box>
                 <Title order={3} className={classes.featureTitle}>Follow Us on Instagram</Title>
-                <Text c="dimmed" size="sm" lh={1.7}>
-                  Stay up to date on rush events, chapter announcements, and sisterhood moments. Our Instagram
-                  is the best place to see Nu Chapter in action.
+                <Text c="dimmed" size="sm" lh={1.7} style={{ flex: 1 }}>
+                  Stay up to date on rush events, chapter announcements, and sisterhood moments — our Instagram is the best place to see Nu Chapter in action.
                 </Text>
                 <Button
                   component="a"
                   href="https://www.instagram.com/gt_ophia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="outline"
-                  color="navy"
-                  w="fit-content"
+                  style={{ background: 'linear-gradient(135deg,#c9a84c,#a8872e)', color: '#1a2744', fontWeight: 700, width: 'fit-content' }}
                   rightSection={<IconArrowRight size={14} />}
                 >
                   @gt_ophia
@@ -315,21 +312,18 @@ export function Join() {
               </Stack>
             </Paper>
             <Paper className={classes.connectCard} p="xl" radius="lg" shadow="xs">
-              <Stack gap="md">
+              <Stack gap="md" justify="space-between" h="100%">
                 <Box className={classes.connectIcon}><IconBrandFacebook size={28} /></Box>
                 <Title order={3} className={classes.featureTitle}>Find Us on Facebook</Title>
-                <Text c="dimmed" size="sm" lh={1.7}>
-                  Follow our Facebook page for event updates, chapter highlights, and everything happening
-                  with Omega Phi Alpha Nu Chapter at Georgia Tech.
+                <Text c="dimmed" size="sm" lh={1.7} style={{ flex: 1 }}>
+                  Follow our Facebook page for event updates, chapter highlights, and everything happening with Nu Chapter at Georgia Tech.
                 </Text>
                 <Button
                   component="a"
                   href="https://www.facebook.com/omegaphialphagt"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="outline"
-                  color="navy"
-                  w="fit-content"
+                  style={{ background: 'linear-gradient(135deg,#c9a84c,#a8872e)', color: '#1a2744', fontWeight: 700, width: 'fit-content' }}
                   rightSection={<IconArrowRight size={14} />}
                 >
                   omegaphialphagt
@@ -337,12 +331,11 @@ export function Join() {
               </Stack>
             </Paper>
             <Paper className={classes.connectCard} p="xl" radius="lg" shadow="xs">
-              <Stack gap="md">
+              <Stack gap="md" justify="space-between" h="100%">
                 <Box className={classes.connectIcon}><IconMail size={28} /></Box>
                 <Title order={3} className={classes.featureTitle}>Reach Out Directly</Title>
-                <Text c="dimmed" size="sm" lh={1.7}>
-                  Have questions about membership, rush, or eligibility? Our Membership Directors are happy
-                  to chat. No question is too small.
+                <Text c="dimmed" size="sm" lh={1.7} style={{ flex: 1 }}>
+                  Have questions about membership, rush, or eligibility? Our Membership Directors are happy to chat — no question is too small.
                 </Text>
                 <Button
                   component={Link}
@@ -358,17 +351,23 @@ export function Join() {
         </Container>
       </Box>
 
-      {/* RECRUITMENT CLOSED NOTICE */}
+      {/* RECRUITMENT OPEN NOTICE */}
       <Box py="2rem">
         <Container size="md">
           <Paper p="2rem" radius="lg" shadow="xs" ta="center" style={{ background: 'linear-gradient(135deg, rgba(201,168,76,0.06), rgba(26,39,68,0.04))', border: '1px solid rgba(201,168,76,0.25)' }}>
             <Badge variant="light" color="gold" size="sm" radius="xl" mb="sm">Recruitment</Badge>
-            <Title order={3} className={classes.sectionTitle} mb="xs">Spring 2026 Rush Has Closed</Title>
+            <Title order={3} className={classes.sectionTitle} mb="xs">Fall 2026 Rush is Now Open!</Title>
             <Text c="dimmed" maw={480} mx="auto" lh={1.8} mb="md">
-              Thank you to everyone who rushed with us this semester! We'll be back in Fall 2026 — we cannot wait to see you there.
+              Rush week is here! Join us for a volunteer event and see what Nu Chapter is all about. We cannot wait to meet you.
             </Text>
-            <Text c="dimmed" size="sm" mb="md">Enter your email and we'll let you know the moment Fall 2026 rush opens.</Text>
-            <NotifyForm />
+            <Button
+              component={Link}
+              to="/join#rush"
+              style={{ background: 'linear-gradient(135deg,#c9a84c,#a8872e)', color: '#1a2744', fontWeight: 700 }}
+              rightSection={<IconArrowRight size={14} />}
+            >
+              Learn About Rush
+            </Button>
           </Paper>
         </Container>
       </Box>

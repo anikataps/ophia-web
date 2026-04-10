@@ -63,7 +63,7 @@ export function Team() {
                 <Stack align="center" gap="sm">
                   <Box className={classes.avatar} style={{ background: member.gradient, overflow: 'hidden', padding: 0 }}>
                     {member.image
-                      ? <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                      ? <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', objectPosition: member.imagePosition ?? 'center', transform: member.imageScale ? `scale(${member.imageScale})` : undefined }} />
                       : member.initial}
                   </Box>
                   <Title order={4} ta="center" className={classes.memberName}>{member.name}</Title>

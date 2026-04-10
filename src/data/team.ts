@@ -6,6 +6,8 @@ export interface ExecMember {
   initial: string;
   gradient: string;
   image?: string;
+  imagePosition?: string;
+  imageScale?: number;
 }
 
 export interface SpotlightMember {
@@ -25,6 +27,8 @@ export const execBoard: ExecMember[] = [
     initial: 'C',
     gradient: 'linear-gradient(135deg, #1a2744, #3a5a9b)',
     image: '/images/people/callie_portrait.jpeg',
+    imagePosition: 'center 55%',
+    imageScale: 1.05,
   },
   {
     id: 'vp',
@@ -34,6 +38,7 @@ export const execBoard: ExecMember[] = [
     initial: 'T',
     gradient: 'linear-gradient(135deg, #243460, #4a6fa5)',
     image: '/images/people/trinity_portrait.jpeg',
+    imagePosition: 'center 0%',
   },
   {
     id: 'secretary',
@@ -78,6 +83,8 @@ export const execBoard: ExecMember[] = [
     initial: 'A',
     gradient: 'linear-gradient(135deg, #7b2d8b, #b45dc4)',
     image: '/images/people/anika_portrait.jpeg',
+    imagePosition: 'center 60%',
+    imageScale: 1.1,
   },
   {
     id: 'membership-director-2',
@@ -123,6 +130,7 @@ export const execBoard: ExecMember[] = [
     initial: 'J',
     gradient: 'linear-gradient(135deg, #1a3a4a, #2d6a8a)',
     image: '/images/people/jasmine_portrait.jpeg',
+    imageScale: 1.15,
   },
 ];
 

@@ -220,7 +220,7 @@ export function Join() {
   return (
     <Box>
       <PageHero
-        eyebrow="Recruitment & Rush"
+        eyebrow="Recruitment"
         title="Become a Member"
         subtitle="Take the first step toward a lifetime of service, friendship, and growth."
       />
@@ -257,7 +257,7 @@ export function Join() {
             {/* Timeline */}
             <Box>
               <Badge variant="light" color="gold" size="sm" radius="xl" mb="md">The Process</Badge>
-              <Title order={2} className={classes.sectionTitle} mb="sm">Rush &amp; Recruitment</Title>
+              <Title order={2} className={classes.sectionTitle} mb="sm">Recruitment</Title>
               <Divider color="#c9a84c" maw={60} mb="md" />
               <Text c="dimmed" mb="2rem" lh={1.7}>
                 Our recruitment process is designed to be welcoming, transparent, and fun. We want you
